@@ -1,0 +1,14 @@
+output for neural net:
+
+['SeriousDlqin2yrs', 'RevolvingUtilizationOfUnsecuredLines', 'age', 'NumberOfTime30-59DaysPastDueNotWorse', 'DebtRatio', 'MonthlyIncome', 'NumberOfOpenCreditLinesAndLoans', 'NumberOfTimes90DaysLate', 'NumberRealEstateLoansOrLines', 'NumberOfTime60-89DaysPastDueNotWorse', 'NumberOfDependents']
+[1.0, 0.766126609, 45.0, 2.0, 0.802982129, 9120.0, 13.0, 0.0, 6.0, 0.0, 2.0]
+[0.0, 0.957151019, 40.0, 0.0, 0.121876201, 2600.0, 4.0, 0.0, 0.0, 0.0, 1.0]
+[0.0, 0.65818014, 38.0, 1.0, 0.085113375, 3042.0, 2.0, 1.0, 0.0, 0.0, 0.0]
+[0.0, 0.233809776, 30.0, 0.0, 0.036049682, 3300.0, 5.0, 0.0, 0.0, 0.0, 0.0]
+[0.0, 0.9072394, 49.0, 1.0, 0.024925695, 63588.0, 7.0, 0.0, 1.0, 0.0, 0.0]
+[0.0, 0.213178682, 74.0, 0.0, 0.375606969, 3500.0, 3.0, 0.0, 1.0, 0.0, 1.0]
+[0.0, 0.305682465, 57.0, 0.0, 5710.0, 6670.221237392844, 8.0, 0.0, 3.0, 0.0, 0.0]
+[0.0, 0.754463648, 39.0, 0.0, 0.209940017, 3500.0, 8.0, 0.0, 0.0, 0.0, 0.0]
+[0.0, 0.116950644, 27.0, 0.0, 46.0, 6670.221237392844, 2.0, 0.0, 0.0, 0.0, 0.7572222678605657]
+headers are ['SeriousDlqin2yrs', 'RevolvingUtilizationOfUnsecuredLines', 'age', 'NumberOfTime30-59DaysPastDueNotWorse', 'DebtRatio', 'MonthlyIncome', 'NumberOfOpenCreditLinesAndLoans', 'NumberOfTimes90DaysLate', 'NumberRealEstateLoansOrLines', 'NumberOfTime60-89DaysPastDueNotWorse', 'NumberOfDependents']
+MLP (alpha=1e-5) 10 Cross Validation Accuracy: 0.93 (+/- 0.01)
