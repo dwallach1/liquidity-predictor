@@ -35,6 +35,7 @@ Naive Bayes 			|			 	 |	93%	|
 
 
 _K-Nearest Neighbor_
+![KNN Graph](/graphs/KNN.png)
 
 
 _Decsion Trees_
