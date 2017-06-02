@@ -40,3 +40,123 @@ weights by: ['distance']
 
 
 weights by: ['uniform']
+
+
+
+
+
+
+
+MLP FROM WEKA
+
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.MultilayerPerceptron -L 0.3 -M 0.2 -N 500 -V 0 -S 0 -E 20 -H a
+Relation:     training_no_missing_attrs
+Instances:    150000
+Attributes:   11
+              SeriousDlqin2yrs
+              RevolvingUtilizationOfUnsecuredLines
+              age
+              NumberOfTime30-59DaysPastDueNotWorse
+              DebtRatio
+              MonthlyIncome
+              NumberOfOpenCreditLinesAndLoans
+              NumberOfTimes90DaysLate
+              NumberRealEstateLoansOrLines
+              NumberOfTime60-89DaysPastDueNotWorse
+              NumberOfDependents
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Linear Node 0
+    Inputs    Weights
+    Threshold    -1.0014879137352473
+    Node 1    0.5681857573131981
+    Node 2    1.0182096684312534
+    Node 3    1.3368075502309398
+    Node 4    0.29047974371660384
+    Node 5    1.1404428278664636
+Sigmoid Node 1
+    Inputs    Weights
+    Threshold    113.40982007030448
+    Attrib RevolvingUtilizationOfUnsecuredLines    -112.0930920798668
+    Attrib age    -2.7314989000091607
+    Attrib NumberOfTime30-59DaysPastDueNotWorse    67.30467539128557
+    Attrib DebtRatio    -70.88187879125977
+    Attrib MonthlyIncome    -110.76378995133057
+    Attrib NumberOfOpenCreditLinesAndLoans    -1.7424713572479422
+    Attrib NumberOfTimes90DaysLate    194.90011649073696
+    Attrib NumberRealEstateLoansOrLines    10.787521771369887
+    Attrib NumberOfTime60-89DaysPastDueNotWorse    142.01846379855
+    Attrib NumberOfDependents    1.1223216031679708
+Sigmoid Node 2
+    Inputs    Weights
+    Threshold    -1.9702865356730905
+    Attrib RevolvingUtilizationOfUnsecuredLines    1.6385518966013528
+    Attrib age    -3.746952688340782
+    Attrib NumberOfTime30-59DaysPastDueNotWorse    13.737719268924742
+    Attrib DebtRatio    2.0184442823206936
+    Attrib MonthlyIncome    -2.179301312371026
+    Attrib NumberOfOpenCreditLinesAndLoans    2.852691194473465
+    Attrib NumberOfTimes90DaysLate    -5.99823449034979
+    Attrib NumberRealEstateLoansOrLines    0.3258589513993159
+    Attrib NumberOfTime60-89DaysPastDueNotWorse    -8.149836983060402
+    Attrib NumberOfDependents    1.3862090740999575
+Sigmoid Node 3
+    Inputs    Weights
+    Threshold    -2.494626827264564
+    Attrib RevolvingUtilizationOfUnsecuredLines    0.5697980778731976
+    Attrib age    -3.3341061014799256
+    Attrib NumberOfTime30-59DaysPastDueNotWorse    16.331031631087274
+    Attrib DebtRatio    1.2995342948825892
+    Attrib MonthlyIncome    -1.2226820260918259
+    Attrib NumberOfOpenCreditLinesAndLoans    -0.6948896369648472
+    Attrib NumberOfTimes90DaysLate    -7.205191597234303
+    Attrib NumberRealEstateLoansOrLines    2.982599301751424
+    Attrib NumberOfTime60-89DaysPastDueNotWorse    -9.76048311185843
+    Attrib NumberOfDependents    1.978438672403886
+Sigmoid Node 4
+    Inputs    Weights
+    Threshold    -14.589181699528421
+    Attrib RevolvingUtilizationOfUnsecuredLines    4.316642207287258
+    Attrib age    -0.598402687543302
+    Attrib NumberOfTime30-59DaysPastDueNotWorse    14.238081616762218
+    Attrib DebtRatio    4.960562402139911
+    Attrib MonthlyIncome    5.885282457199309
+    Attrib NumberOfOpenCreditLinesAndLoans    -38.77096242123936
+    Attrib NumberOfTimes90DaysLate    -11.467401799676495
+    Attrib NumberRealEstateLoansOrLines    8.638939478336342
+    Attrib NumberOfTime60-89DaysPastDueNotWorse    -5.388757692615906
+    Attrib NumberOfDependents    5.6564954393692926
+Sigmoid Node 5
+    Inputs    Weights
+    Threshold    -2.277741645955968
+    Attrib RevolvingUtilizationOfUnsecuredLines    1.2249465351644802
+    Attrib age    -3.628441724260768
+    Attrib NumberOfTime30-59DaysPastDueNotWorse    14.167774009315833
+    Attrib DebtRatio    1.7750484420074288
+    Attrib MonthlyIncome    -1.6704551125503575
+    Attrib NumberOfOpenCreditLinesAndLoans    1.9342916915153714
+    Attrib NumberOfTimes90DaysLate    -4.352351220359229
+    Attrib NumberRealEstateLoansOrLines    0.9634779734543825
+    Attrib NumberOfTime60-89DaysPastDueNotWorse    -10.278098248337985
+    Attrib NumberOfDependents    1.314322731830886
+Class 
+    Input
+    Node 0
+
+
+Time taken to build model: 99.94 seconds
+
+=== Cross-validation ===
+=== Summary ===
+
+Correlation coefficient                  0.3307
+Mean absolute error                      0.088 
+Root mean squared error                  0.2393
+Relative absolute error                 70.5584 %
+Root relative squared error             95.823  %
+Total Number of Instances           150000     
+

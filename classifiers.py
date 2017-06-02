@@ -27,7 +27,7 @@ from sklearn import neighbors, datasets
 
 # ClASSIFIERS : {DecisionTree, KNN, MLP, NaiveBayes, Linear Regression}
 
-def read_training_data(fname):
+def read_training_data(fname, calibrate=True, drop=None):
 	# columns --> 1: SeriousDlqin2yrs, 2: RevolvingUtilizationOfUnsecuredLines, 3: age, 4: NumberOfTime30-59DaysPastDueNotWorse
 	#		5: DebtRatio, 6: MonthlyIncome, 7: NumberOfOpenCreditLinesAndLoans, 8: NumberOfTimes90DaysLate, 9: NumberRealEstateLoansOrLines
 	#		10: NumberOfTime60-89DaysPastDueNotWorse, 11: NumberOfDependents
@@ -96,7 +96,11 @@ def compute_missing_data(data):
 
 def mlp(x,y):
 	clf = MLPClassifier(solver='lbfgs', alpha=1e-5,
+<<<<<<< Updated upstream
                      hidden_layer_sizes=(100,100,100,100,100,100,100,100,100,100,100,100,100), random_state=1)
+=======
+                     hidden_layer_sizes=(100,100,100,100,100), random_state=1)
+>>>>>>> Stashed changes
 	scores = cross_val_score(estimator=clf, X=x, y=y, cv=10, n_jobs=4)
 	print("MLP (alpha=1e-5) 10 Cross Validation Accuracy: %0.2f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
 
@@ -176,7 +180,7 @@ def mlp_graphs(X, y):
 	figure.subplots_adjust(left=.02, right=.98)
 	plt.show()
 
-def knn(x, y, k=15):
+def knn(x, y, k=15, graph=None):
 	"""
 	inputs:
 		train_file: the file to train and test the classifier
@@ -185,43 +189,47 @@ def knn(x, y, k=15):
 	Returns:
 		Nothing
 	"""
+	print ('\nbuilding knn classifier ...')
 	n_neighbors = k
 	h = .02  # step size in the mesh
 		# Create color maps
 	cmap_light = ListedColormap(['#FFAAAA', '#AAFFAA', '#AAAAFF'])
 	cmap_bold = ListedColormap(['#FF0000', '#00FF00', '#0000FF'])
 
-	for weights in ['uniform', 'distance']:
-	    # we create an instance of Neighbours Classifier and fit the data.
-	    clf = neighbors.KNeighborsClassifier(n_neighbors, weights=weights)
-	    clf.fit(x, y)
+	if graph:
+		for weights in ['uniform', 'distance']:
+		    # we create an instance of Neighbours Classifier and fit the data.
+		    clf = neighbors.KNeighborsClassifier(n_neighbors, weights=weights)
+		    clf.fit(x, y)
 
-	    # Plot the decision boundary. For that, we will assign a color to each
-	    # point in the mesh [x_min, x_max]x[y_min, y_max].
-	    x_min, x_max = x[:, 0].min() - 1, x[:, 0].max() + 1
-	    y_min, y_max = x[:, 1].min() - 1, x[:, 1].max() + 1
-	    xx, yy = np.meshgrid(np.arange(x_min, x_max, h),
-	                         np.arange(y_min, y_max, h))
-	    Z = clf.predict(np.c_[xx.ravel(), yy.ravel()])
+		    # Plot the decision boundary. For that, we will assign a color to each
+		    # point in the mesh [x_min, x_max]x[y_min, y_max].
+		    x_min, x_max = x[:, 0].min() - 1, x[:, 0].max() + 1
+		    y_min, y_max = x[:, 1].min() - 1, x[:, 1].max() + 1
+		    xx, yy = np.meshgrid(np.arange(x_min, x_max, h),
+		                         np.arange(y_min, y_max, h))
+		    Z = clf.predict(np.c_[xx.ravel(), yy.ravel()])
 
-	    # Put the result into a color plot
-	    Z = Z.reshape(xx.shape)
-	    plt.figure()
-	    plt.pcolormesh(xx, yy, Z, cmap=cmap_light)
+		    # Put the result into a color plot
+		    Z = Z.reshape(xx.shape)
+		    plt.figure()
+		    plt.pcolormesh(xx, yy, Z, cmap=cmap_light)
 
-	    # Plot also the training points
-	    plt.scatter(x[:, 0], x[:, 1], c=y, cmap=cmap_bold)
-	    plt.xlim(xx.min(), xx.max())
-	    plt.ylim(yy.min(), yy.max())
-	    plt.title("3-Class classification (k = %i, weights = '%s')"
-	              % (n_neighbors, weights))
+		    # Plot also the training points
+		    plt.scatter(x[:, 0], x[:, 1], c=y, cmap=cmap_bold)
+		    plt.xlim(xx.min(), xx.max())
+		    plt.ylim(yy.min(), yy.max())
+		    plt.title("3-Class classification (k = %i, weights = '%s')"
+		              % (n_neighbors, weights))
 
-	plt.show()
+		plt.show()
 
-	# weights = ['uniform', 'distance']
-	# clf = neighbors.KNeighborsClassifier(n_neighbors, weights=weights[0])
-	# scores = cross_val_score(estimator=clf, X=x, y=y, cv=10, n_jobs=4)
-	# print("KNN 10 Cross Validation Accuracy: %0.2f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
+	if not graph:
+		weights = ['uniform', 'distance']
+		for w in weights:
+			clf = neighbors.KNeighborsClassifier(n_neighbors, weights=w)
+			scores = cross_val_score(estimator=clf, X=x, y=y, cv=10, n_jobs=4)
+			print("KNN 10 Cross Validation Accuracy: %0.2f (+/- %0.2f) for weights %s" % (scores.mean(), scores.std() * 2, w))
 
 def knn_graph(x, y):
 	x_axis =[]
@@ -303,24 +311,15 @@ def main():
 	data = d[1:]
 	X = [attrs[1:] for attrs in data] # data with the class attribute missing
 	# X = [a[1:3] for a in x]
-	Y = [int(_class[0]) for _class in data] # classifications for the data
-	assert len(X) == len(Y)
-
-	# iris = datasets.load_iris()
-	# X = iris.data[:, :2]  # we only take the first two features. We could
- #                      # avoid this ugly slicing by using a two-dim dataset
-	# Y = iris.target
-	# decision_tree(x, y)
+	Y = [int(_class[0]) for _class in data] # classifications for the data	
 	np_x = np.array(X)
 	np_y = np.array(Y)
-	# print(X[:15])
-	# print("---------------")
-	# print(Y[:15])
-	# knn(np_x, np_y, k=15)
-	# knn_graph(x, y)
+	assert len(np_x) == len(np_y)
+	# decision_tree(np_x, np_y)
+	# knn(np_x, np_y, k=15, graph=True)
+	# knn_graph(np_x, np_y)
 	mlp(np_x,np_y)
 	# mlp_graphs(np_x, np_y)
 
 if __name__ == '__main__':
 	main()
-	
