@@ -61,12 +61,12 @@ The table below displays the best accuracy given the classifiers for both the fi
 and the dropped dataset.
 
 Classifier | Dropped Dataset | Filled in Dataset |
------------|------------------------------------|------------------------------|
-Decision Tree 			| 	89%			 		|	90%	|
-Nearest Neighbor 		| 	93%					|	93%	|
-Multilayer Perceptron 	|						|	93%	|
-Logistic Regression 	|						|	93%	|
-Naive Bayes 			|			 	 		|	93%	|
+-----------|-----------------|-------------------|
+Decision Tree 			| 	89.17%	|	89.82%	 |
+Nearest Neighbor 		| 	93.07%	|	93.35%	 |
+Multilayer Perceptron 	|			|	93%		 |
+Logistic Regression 	|			|	93%		 |
+Naive Bayes 			|			|	93%		 |
 
 
 __K-Nearest Neighbors__
@@ -88,8 +88,8 @@ Dataset | Weight |attr_1 | attr_2 | attr_3 | attr_4 | attr_5 | attr_6 | attr_7 |
 --------|--------|-------|--------|--------|--------|--------|--------|--------|--------|--------|---------|
 Dropped | Uniform| 98%   |93%     | 93%    | 93% 	|93%     | 94%    |	93%	   |  93%	|  93%   | 93%	   |
 Dropped | Distance|98%   |93%     | 93%    | 93%    |93%     | 93%    |	93%	   |  93%	|  93%   | 93%	   |
-Filled-In| Uniform|98%   |93%     | 93%    | 93% 	|93%     | 94%    |	93%	   |  93%	|  93%   | 93%	   |
-Filled-In| Distance|98%  |93%     | 93%    | 93%    |93%     | 93%    |	93%	   |  93%	|  93%   | 93%	   |
+Filled-In| Uniform|93.35% |93.36% | 93.35% | 93.37% |93.50%  | 93.35% |	93.35% |  93.35%|  93.35%| 93.35%  |
+Filled-In| Distance|93.28%|93.25% | 93.30% | 93.28% |93.29%  | 93.26% |	93.29% |  93.30%|  93.30% | 93.30% |
 
 __Decsion Trees__
 
@@ -253,7 +253,7 @@ By doing this, we are able to iterate through which attribute we want to drop an
 the accuracy of the classifier. This is shown below:
 
 ```python
-	for j in range(0,10):
+	for j in range(1,11):
 		_data = read_training_data(train_file, drop=j)
 		headers = _data[0]
 		data = _data[1:]

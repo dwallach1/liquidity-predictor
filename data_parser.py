@@ -63,9 +63,6 @@ def compute_missing_data(data):
 				# print ("setting value to mean of %s" % means[j])
 	return data		
 
-def set_AB(data):
-	for d in data:
-		if d[0] 
 
 
 def generate_filled_in():
