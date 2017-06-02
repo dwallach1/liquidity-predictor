@@ -1,18 +1,16 @@
 import csv 
 
-
-def read_training_data(fname):
-	# columns --> 1: SeriousDlqin2yrs, 2: RevolvingUtilizationOfUnsecuredLines, 3: age, 4: NumberOfTime30-59DaysPastDueNotWorse
-	#		5: DebtRatio, 6: MonthlyIncome, 7: NumberOfOpenCreditLinesAndLoans, 8: NumberOfTimes90DaysLate, 9: NumberRealEstateLoansOrLines
-	#		10: NumberOfTime60-89DaysPastDueNotWorse, 11: NumberOfDependents
+def read_training_data(fname, dropped=False):
 	col_start = 1
 	col_end = 12
 	data = []
 	f = open(fname)
 	csv_reader = csv.reader(f)
 	for line in csv_reader:
-	    # line[0] is the row label
 	    append_line = [line[i] for i in range(col_start,col_end)]
+	    if dropped:
+		    if "NA" in append_line:
+		    	continue
 	    data.append(append_line)
 	f.close()
 	return data
@@ -63,12 +61,26 @@ def compute_missing_data(data):
 			if x == 'NA':
 				d[j] = means[j]
 				# print ("setting value to mean of %s" % means[j])
-	return data			
+	return data		
 
-d = read_training_data('data/cs-training.csv')	
-d_new = compute_missing_data(d)
+def generate_filled_in():
+	d = read_training_data('data/cs-training.csv')	
+	d_new = compute_missing_data(d)
+	
+	with open("data/training_no_missing_attrs.csv", "wb") as f:
+	    writer = csv.writer(f)
+	    writer.writerows(d_new)
 
-with open("data/training_no_missing_attrs.csv", "wb") as f:
-    writer = csv.writer(f)
-    # writer.writerow(headers)
-    writer.writerows(d_new)
+def generate_dropped():
+	d_new = read_training_data('data/cs-training.csv', dropped=True)	
+
+	with open("data/training_missing_dropped.csv", "wb") as f:
+	    writer = csv.writer(f)
+	    writer.writerows(d_new)
+
+def main():
+	generate_filled_in()
+	generate_dropped()
+
+if __name__ == '__main__':
+	main()
