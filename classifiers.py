@@ -27,10 +27,15 @@ from sklearn import neighbors, datasets
 
 # ClASSIFIERS : {DecisionTree, KNN, MLP, NaiveBayes, Linear Regression}
 
-def read_training_data(fname, calibrate=True, drop=None):
-	# columns --> 1: SeriousDlqin2yrs, 2: RevolvingUtilizationOfUnsecuredLines, 3: age, 4: NumberOfTime30-59DaysPastDueNotWorse
-	#		5: DebtRatio, 6: MonthlyIncome, 7: NumberOfOpenCreditLinesAndLoans, 8: NumberOfTimes90DaysLate, 9: NumberRealEstateLoansOrLines
-	#		10: NumberOfTime60-89DaysPastDueNotWorse, 11: NumberOfDependents
+def read_training_data(fname, drop=None):
+	"""
+	Input:
+		fname -- (string) the path to the csv file of data
+		drop -- (None or int) defaulted to none, otherwise indicated index to drop
+
+	Returns:
+		the orginal dataset in an array format with attribute dropped in drop is not None
+	"""
 	col_start = 0
 	col_end = 11
 	data = []
@@ -38,9 +43,21 @@ def read_training_data(fname, calibrate=True, drop=None):
 	csv_reader = csv.reader(f)
 	for j, line in enumerate(csv_reader):
 		if j == 0:
-			append_line = [line[header] for header in range(col_start, col_end)]
+			# if it is the header file, parse as is (string)
+			if drop != None:
+				append_line = [line[header] for header in range(col_start, col_end)]
+				_a = append_line.pop(drop)
+			else:
+				append_line = [line[header] for header in range(col_start, col_end)]
 		if j != 0:
-			append_line = [float(line[cell]) for cell in range(col_start,col_end)]
+			# otherwise, cast as float
+			if drop != None:
+				append_line = [float(line[cell]) for cell in range(col_start,col_end)]
+				_a = append_line.pop(drop)
+			else:
+				append_line = [float(line[cell]) for cell in range(col_start,col_end)]
+		if j < 10:
+			print (append_line)
 		data.append(append_line)
 	f.close()
 	return data
@@ -298,26 +315,28 @@ def decision_tree(x, y, output_file=None, colored=True, graph=False):
 def main():
 	# train_file = 'data/cs-training.csv'
 	train_file = 'data/training_no_missing_attrs.csv'
-	d = read_training_data(train_file)
 
-	# if reading from the original dataset then uncomment the following line
-	# d = compute_missing_data(d_missing)
-	
-	headers = d[0]
-	print("headers are %s" % headers)
-	
-	data = d[1:]
-	X = [attrs[1:] for attrs in data] # data with the class attribute missing
-	# X = [a[1:3] for a in x]
-	Y = [int(_class[0]) for _class in data] # classifications for the data	
-	np_x = np.array(X)
-	np_y = np.array(Y)
-	assert len(np_x) == len(np_y)
-	# decision_tree(np_x, np_y)
-	# knn(np_x, np_y, k=15, graph=True)
-	knn_graph(np_x, np_y)
-	# mlp(np_x,np_y)
-	# mlp_graphs(np_x, np_y)
+	for j in range(0,11):
+		_data = read_training_data(train_file, drop=j)
+
+		# if reading from the original dataset then uncomment the following line
+		# d = compute_missing_data(d_missing)
+		
+		headers = _data[0]
+		print("headers are %s" % headers)
+		
+		data = _data[1:]
+		X = [attrs[1:] for attrs in data] # data with the class attribute missing
+		Y = [int(_class[0]) for _class in data] # classifications for the data	
+		np_x = np.array(X)
+		np_y = np.array(Y)
+		assert len(np_x) == len(np_y)
+		print("Finding Decision tree for dropping attribute %s", headers[j])
+		decision_tree(np_x, np_y)
+		# knn(np_x, np_y, k=15, graph=True)
+		# knn_graph(np_x, np_y)
+		# mlp(np_x,np_y)
+		# mlp_graphs(np_x, np_y)
 
 if __name__ == '__main__':
 	main()

@@ -1,6 +1,47 @@
 
 Decison Tree 10-fold Cross Validation Accuracy: 0.90 (+/- 0.00)
 
+
+USING FILL IN DATASET
+-----
+('Finding Decision tree for dropping attribute %s', 'RevolvingUtilizationOfUnsecuredLines')
+Decison Tree 10-fold Cross Validation Accuracy: 0.96 (+/- 0.01)
+-------
+('Finding Decision tree for dropping attribute %s', 'age')
+Decison Tree 10-fold Cross Validation Accuracy: 0.89 (+/- 0.00)
+-------
+('Finding Decision tree for dropping attribute %s', 'NumberOfTime30-59DaysPastDueNotWorse')
+Decison Tree 10-fold Cross Validation Accuracy: 0.90 (+/- 0.00)
+-----------
+('Finding Decision tree for dropping attribute %s', 'DebtRatio')
+Decison Tree 10-fold Cross Validation Accuracy: 0.90 (+/- 0.01)
+--------------
+('Finding Decision tree for dropping attribute %s', 'MonthlyIncome')
+Decison Tree 10-fold Cross Validation Accuracy: 0.90 (+/- 0.00)
+--------------------
+('Finding Decision tree for dropping attribute %s', 'NumberOfOpenCreditLinesAndLoans')
+Decison Tree 10-fold Cross Validation Accuracy: 0.90 (+/- 0.00)
+---------------------
+('Finding Decision tree for dropping attribute %s', 'NumberOfTimes90DaysLate')
+Decison Tree 10-fold Cross Validation Accuracy: 0.90 (+/- 0.00)
+-------------------
+('Finding Decision tree for dropping attribute %s', 'NumberRealEstateLoansOrLines')
+Decison Tree 10-fold Cross Validation Accuracy: 0.89 (+/- 0.00)
+-----------------
+('Finding Decision tree for dropping attribute %s', 'NumberOfTime60-89DaysPastDueNotWorse')
+Decison Tree 10-fold Cross Validation Accuracy: 0.90 (+/- 0.00)
+---------------------
+('Finding Decision tree for dropping attribute %s', 'NumberOfDependents')
+Decison Tree 10-fold Cross Validation Accuracy: 0.90 (+/- 0.00)
+-------------------
+
+
+
+
+
+
+
+
 MLP 10-fold Cross Validaton Accuracy: 
 
 Linear Regression 10-fold Cross Validation Accuracy:
