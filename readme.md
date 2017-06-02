@@ -61,10 +61,10 @@ determine the values when dropping attributes. The accuracy results using the fi
 we found are depicted below: 
 
 
-Drop Attribute |attr_1 | attr_2 | attr_3 | attr_4 | attr_5 | attr_6 | attr_7 | attr_8 | attr_9 | attr_10 |
+Weight |attr_1 | attr_2 | attr_3 | attr_4 | attr_5 | attr_6 | attr_7 | attr_8 | attr_9 | attr_10 |
 ---------------|-------|--------|--------|--------|--------|--------|--------|--------|--------|---------|
-Weights=Uniform|98%    |93%     | 93%    | 93% 	  |93%     | 94%    |	93%	 |  93%	  |  93%   | 93%	 |
-Weights=Distance|98%   |93%     | 93%    | 93%    |93%     | 93%    |	93%	 |  93%	  |  93%   | 93%	 |
+Uniform|98%    |93%     | 93%    | 93% 	  |93%     | 94%    |	93%	 |  93%	  |  93%   | 93%	 |
+Distance|98%   |93%     | 93%    | 93%    |93%     | 93%    |	93%	 |  93%	  |  93%   | 93%	 |
 
 
 _Decsion Trees_
@@ -72,9 +72,9 @@ _Decsion Trees_
 Dropping attribues for the decision tree classifier on the filled in dataset, we get the following 
 accuracy results:
 
-Drop Attribute |attr_1 | attr_2 | attr_3 | attr_4 | attr_5 | attr_6 | attr_7 | attr_8 | attr_9 | attr_10 |
----------------|-------|--------|--------|--------|--------|--------|--------|--------|--------|---------|
-		 	   |96%	   |89%     | 90%    | 90% 	  |90%     | 90%    |	90%	 |  89%	  |  90%   | 90%     |
+attr_1 | attr_2 | attr_3 | attr_4 | attr_5 | attr_6 | attr_7 | attr_8 | attr_9 | attr_10 |
+-------|--------|--------|--------|--------|--------|--------|--------|--------|---------|
+96%	   |89%     | 90%    | 90% 	  |90%     | 90%    |	90%	 |  89%	  |  90%   | 90%     |
 
 
 

@@ -1,4 +1,10 @@
 
+ERROR MESSAGE THAT IM GETTING:
+
+/usr/local/lib/python2.7/site-packages/sklearn/model_selection/_split.py:581: Warning: The least populated class in y has only 1 members, which is too few. The minimum number of groups for any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+
+
 Decison Tree 10-fold Cross Validation Accuracy: 0.90 (+/- 0.00)
 
 
