@@ -21,19 +21,19 @@ The Programs we used to develop our results are:
 
 # Attributes
 
-Variable Name | Description | Type |
---------------|-------------|------|
-__SeriousDlqin2yrs__ | __Person experienced 90 days past due delinquency or worse__ | __Y/N__ |
-RevolvingUtilizationOfUnsecuredLines | Total balance on credit cards and personal lines of credit except real estate and no installment debt like car loans divided by the sum of credit limits | percentage
-age | Age of borrower in years | integer
-NumberOfTime30-59DaysPastDueNotWorse | Number of times borrower has been 30-59 days past due but no worse in the last 2 years. | integer
-DebtRatio | Monthly debt payments, alimony,living costs divided by monthy gross income | percentage
-MonthlyIncome | Monthly income | real
-NumberOfOpenCreditLinesAndLoans | Number of Open loans (installment like car loan or mortgage) and Lines of credit (e.g. credit cards) | integer
-NumberOfTimes90DaysLate | Number of times borrower has been 90 days or more past due. | integer
-NumberRealEstateLoansOrLines | Number of mortgage and real estate loans including home equity lines of credit | integer
-NumberOfTime60-89DaysPastDueNotWorse | Number of times borrower has been 60-89 days past due but no worse in the last 2 years. | integer
-NumberOfDependents | Number of dependents in family excluding themselves (spouse, children etc.) | integer
+Feature |Variable Name | Description | Type |
+--------|--------------|-------------|------|
+__Classifier__ | __SeriousDlqin2yrs__ | __Person experienced 90 days past due delinquency or worse__ | __Y/N__ |
+Attr_1 | RevolvingUtilizationOfUnsecuredLines | Total balance on credit cards and personal lines of credit except real estate and no installment debt like car loans divided by the sum of credit limits | percentage
+Attr_2 |age | Age of borrower in years | integer
+Attr_3 | NumberOfTime30-59DaysPastDueNotWorse | Number of times borrower has been 30-59 days past due but no worse in the last 2 years. | integer
+Attr_4 | DebtRatio | Monthly debt payments, alimony,living costs divided by monthy gross income | percentage
+Attr_5 | MonthlyIncome | Monthly income | real
+Attr_6 | NumberOfOpenCreditLinesAndLoans | Number of Open loans (installment like car loan or mortgage) and Lines of credit (e.g. credit cards) | integer
+Attr_7 | NumberOfTimes90DaysLate | Number of times borrower has been 90 days or more past due. | integer
+Attr_8 | NumberRealEstateLoansOrLines | Number of mortgage and real estate loans including home equity lines of credit | integer
+Attr_9 | NumberOfTime60-89DaysPastDueNotWorse | Number of times borrower has been 60-89 days past due but no worse in the last 2 years. | integer
+Attr_10 | NumberOfDependents | Number of dependents in family excluding themselves (spouse, children etc.) | integer
 
 
 # Results
@@ -84,21 +84,22 @@ determine the values when dropping attributes. The accuracy results using the fi
 we found are depicted below: 
 
 
-Weight |attr_1 | attr_2 | attr_3 | attr_4 | attr_5 | attr_6 | attr_7 | attr_8 | attr_9 | attr_10 |
----------------|-------|--------|--------|--------|--------|--------|--------|--------|--------|---------|
-Uniform|98%    |93%     | 93%    | 93% 	  |93%     | 94%    |	93%	 |  93%	  |  93%   | 93%	 |
-Distance|98%   |93%     | 93%    | 93%    |93%     | 93%    |	93%	 |  93%	  |  93%   | 93%	 |
-
+Dataset | Weight |attr_1 | attr_2 | attr_3 | attr_4 | attr_5 | attr_6 | attr_7 | attr_8 | attr_9 | attr_10 |
+--------|--------|-------|--------|--------|--------|--------|--------|--------|--------|--------|---------|
+Dropped | Uniform| 98%   |93%     | 93%    | 93% 	|93%     | 94%    |	93%	   |  93%	|  93%   | 93%	   |
+Dropped | Distance|98%   |93%     | 93%    | 93%    |93%     | 93%    |	93%	   |  93%	|  93%   | 93%	   |
+Filled-In| Uniform|98%   |93%     | 93%    | 93% 	|93%     | 94%    |	93%	   |  93%	|  93%   | 93%	   |
+Filled-In| Distance|98%  |93%     | 93%    | 93%    |93%     | 93%    |	93%	   |  93%	|  93%   | 93%	   |
 
 __Decsion Trees__
 
 Dropping attribues for the decision tree classifier on the filled in dataset, we get the following 
 accuracy results:
 
-attr_1 | attr_2 | attr_3 | attr_4 | attr_5 | attr_6 | attr_7 | attr_8 | attr_9 | attr_10 |
--------|--------|--------|--------|--------|--------|--------|--------|--------|---------|
-96%	   |89%     | 90%    | 90% 	  |90%     | 90%    |	90%	 |  89%	  |  90%   | 90%     |
-
+Dataset | attr_1 | attr_2 | attr_3 | attr_4 | attr_5 | attr_6 | attr_7 | attr_8 | attr_9 | attr_10 |
+--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|---------|
+Dropped |89.02%  |89.31%  | 88.97% | 89.07% |89.20%  | 89.27% |88.80%  |  89.21%|  89.04%| 89.12%  |
+Filled-In| 89.37%| 89.80% | 89.60% | 89.66% | 89.78% | 89.86% | 89.29% | 89.89% | 89.63% | 89.79%  | 
 
 
 

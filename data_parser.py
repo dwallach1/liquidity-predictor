@@ -63,11 +63,16 @@ def compute_missing_data(data):
 				# print ("setting value to mean of %s" % means[j])
 	return data		
 
+def set_AB(data):
+	for d in data:
+		if d[0] 
+
+
 def generate_filled_in():
 	d = read_training_data('data/cs-training.csv')	
 	d_new = compute_missing_data(d)
 	
-	with open("data/training_no_missing_attrs.csv", "wb") as f:
+	with open("data/training_no_missing_attrs_AB.csv", "wb") as f:
 	    writer = csv.writer(f)
 	    writer.writerows(d_new)
 
@@ -80,7 +85,7 @@ def generate_dropped():
 
 def main():
 	generate_filled_in()
-	generate_dropped()
+	# generate_dropped()
 
 if __name__ == '__main__':
 	main()

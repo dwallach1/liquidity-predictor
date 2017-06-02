@@ -41,14 +41,14 @@ def read_training_data(fname, drop=None):
 			# if it is the header file, parse as is (string)
 			if drop != None:
 				append_line = [line[header] for header in range(col_start, col_end)]
-				_a = append_line.pop(drop)
+				del append_line[drop]
 			else:
 				append_line = [line[header] for header in range(col_start, col_end)]
 		if j != 0:
 			# otherwise, cast as float
 			if drop != None:
 				append_line = [float(line[cell]) for cell in range(col_start,col_end)]
-				_a = append_line.pop(drop)
+				del append_line[drop]
 			else:
 				append_line = [float(line[cell]) for cell in range(col_start,col_end)]
 		data.append(append_line)
@@ -302,45 +302,46 @@ def decision_tree(x, y, output_file=None, colored=True, graph=False):
 
 	clf = tree.DecisionTreeClassifier()
 	scores = cross_val_score(estimator=clf, X=x, y=y, cv=10, n_jobs=4)
-	print("Decison Tree 10-fold Cross Validation Accuracy: %0.2f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
+	print("Decison Tree 10-fold Cross Validation Accuracy: %0.4f (+/- %0.4f)" % (scores.mean(), scores.std() * 2))
 
 def main():
 	# train_file = 'data/cs-training.csv'
-	# train_file = 'data/training_no_missing_attrs.csv'
-	train_file = 'data/training_missing_dropped.csv'
+	train_file = 'data/training_no_missing_attrs.csv'
+	# train_file = 'data/training_missing_dropped.csv'
 
 	_data = read_training_data(train_file)
 	headers = _data[0]
+
 	data = _data[1:]
 	assert(len(headers) == len(data[1]))
+	
 	X = [attrs[1:] for attrs in data] # data with the class attribute missing
 	Y = [int(_class[0]) for _class in data] # classifications for the data	
 	np_x = np.array(X)
 	np_y = np.array(Y)
 	assert len(np_x) == len(np_y)
-	# decision_tree(np_x, np_y)
-	knn(np_x, np_y, k=15, graph=False)
+	# # decision_tree(np_x, np_y)
+	# # knn(np_x, np_y, k=15, graph=False)
+	# mlp_graphs(np_x, np_y)
+	decision_tree(np_x, np_y, output_file="graphs/dt-newest.pdf", graph=True, colored=False)
 
-	# for j in range(0,10):
-	# 	_data = read_training_data(train_file, drop=j)
-
-	# 	# if reading from the original dataset then uncomment the following line
-	# 	# d = compute_missing_data(d_missing)
-		
+	# for j in range(1,11):
+	# 	_data = read_training_data(train_file, drop=j)		
 	# 	headers = _data[0]
-	# 	# print("headers are %s" % headers)
 		
 	# 	data = _data[1:]
-	# 	assert(len(headers) == len deata[1])
+	# 	assert(len(headers) == len (data[1]))
 	# 	X = [attrs[1:] for attrs in data] # data with the class attribute missing
 	# 	Y = [int(_class[0]) for _class in data] # classifications for the data	
 	# 	np_x = np.array(X)
 	# 	np_y = np.array(Y)
+
+	# 	assert(len(np_x[0]) == 9)
 	# 	assert len(np_x) == len(np_y)
-	# 	# print("Finding Decision Tree for dropping attribute %s", headers[j])
-	# 	print("Finding 15-NN for dropping attribute %s", headers[j])
-	# 	# decision_tree(np_x, np_y)
-	# 	knn(np_x, np_y, k=15, graph=False)
+	# 	print("Finding Decision Tree for dropping attribute %s", j)
+	# 	# print("Finding 15-NN for dropping attribute %s", headers[j])
+	# 	decision_tree(np_x, np_y)
+	# 	# knn(np_x, np_y, k=15, graph=False)
 	# 	# knn_graph(np_x, np_y)
 	# 	# mlp(np_x,np_y)
 	# 	# mlp_graphs(np_x, np_y)
