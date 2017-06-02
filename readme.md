@@ -34,8 +34,6 @@ Naive Bayes 			|			 	 |	93%	|
 
 
 
-_Note:_ the percentatages above 
-
 _K-Nearest Neighbor_
 
 

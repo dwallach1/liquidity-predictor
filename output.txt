@@ -7,42 +7,64 @@ Linear Regression 10-fold Cross Validation Accuracy:
 
 Naive Bayes 10-fold Cross Validation Accuracy: 
 
-weights by: ['distance']
-1NN 10 Cross Validation Accuracy: 0.90 (+/- 0.00),
-2NN 10 Cross Validation Accuracy: 0.90 (+/- 0.00),
-3NN 10 Cross Validation Accuracy: 0.92 (+/- 0.00),
-4NN 10 Cross Validation Accuracy: 0.93 (+/- 0.00),
-5NN 10 Cross Validation Accuracy: 0.93 (+/- 0.00),
-6NN 10 Cross Validation Accuracy: 0.93 (+/- 0.00),
-7NN 10 Cross Validation Accuracy: 0.93 (+/- 0.00),
-8NN 10 Cross Validation Accuracy: 0.93 (+/- 0.00),
-9NN 10 Cross Validation Accuracy: 0.93 (+/- 0.00),
-10NN 10 Cross Validation Accuracy: 0.93 (+/- 0.00),
-11NN 10 Cross Validation Accuracy: 0.93 (+/- 0.00),
-12NN 10 Cross Validation Accuracy: 0.93 (+/- 0.00),
-13NN 10 Cross Validation Accuracy: 0.93 (+/- 0.00),
-14NN 10 Cross Validation Accuracy: 0.93 (+/- 0.00),
-15NN 10 Cross Validation Accuracy: 0.93 (+/- 0.00),
-16NN 10 Cross Validation Accuracy: 0.93 (+/- 0.00),
-17NN 10 Cross Validation Accuracy: 0.93 (+/- 0.00),
-18NN 10 Cross Validation Accuracy: 0.93 (+/- 0.00),
-19NN 10 Cross Validation Accuracy: 0.93 (+/- 0.00),
-20NN 10 Cross Validation Accuracy: 0.93 (+/- 0.00),
-21NN 10 Cross Validation Accuracy: 0.93 (+/- 0.00),
-22NN 10 Cross Validation Accuracy: 0.93 (+/- 0.00),
-23NN 10 Cross Validation Accuracy: 0.93 (+/- 0.00),
-24NN 10 Cross Validation Accuracy: 0.93 (+/- 0.00),
-25NN 10 Cross Validation Accuracy: 0.93 (+/- 0.00),
-26NN 10 Cross Validation Accuracy: 0.93 (+/- 0.00),
-27NN 10 Cross Validation Accuracy: 0.93 (+/- 0.00),
-28NN 10 Cross Validation Accuracy: 0.93 (+/- 0.00),
-29NN 10 Cross Validation Accuracy: 0.93 (+/- 0.00),
-
-
-weights by: ['uniform']
-
-
-
+1NN 10-fold Cross Validation Accuracy: 0.90 (+/- 0.00) weights distance
+1NN 10-fold Cross Validation Accuracy: 0.90 (+/- 0.00) weights uniform
+2NN 10-fold Cross Validation Accuracy: 0.90 (+/- 0.00) weights distance
+2NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights uniform
+3NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights distance
+3NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights uniform
+4NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights distance
+4NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights uniform
+5NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights distance
+5NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights uniform
+6NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights distance
+6NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights uniform
+7NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights distance
+7NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights uniform
+8NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights distance
+8NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights uniform
+9NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights distance
+9NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights uniform
+10NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights distance
+10NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights uniform
+11NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights distance
+11NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights uniform
+12NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights distance
+12NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights uniform
+13NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights distance
+13NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights uniform
+14NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights distance
+14NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights uniform
+15NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights distance
+15NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights uniform
+16NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights distance
+16NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights uniform
+17NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights distance
+17NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights uniform
+18NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights distance
+18NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights uniform
+19NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights distance
+19NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights uniform
+20NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights distance
+20NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights uniform
+21NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights distance
+21NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights uniform
+22NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights distance
+22NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights uniform
+23NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights distance
+23NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights uniform
+24NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights distance
+24NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights uniform
+25NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights distance
+25NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights uniform
+26NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights distance
+26NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights uniform
+27NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights distance
+27NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights uniform
+28NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights distance
+28NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights uniform
+29NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights distance
+29NN 10-fold Cross Validation Accuracy: 0.93 (+/- 0.00) weights uniform
 
 
 

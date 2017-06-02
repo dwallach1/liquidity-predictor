@@ -33,18 +33,14 @@ def read_training_data(fname, calibrate=True, drop=None):
 	#		10: NumberOfTime60-89DaysPastDueNotWorse, 11: NumberOfDependents
 	col_start = 0
 	col_end = 11
-	# j = 0
 	data = []
 	f = open(fname)
 	csv_reader = csv.reader(f)
 	for j, line in enumerate(csv_reader):
 		if j == 0:
 			append_line = [line[header] for header in range(col_start, col_end)]
-			print (append_line)
 		if j != 0:
 			append_line = [float(line[cell]) for cell in range(col_start,col_end)]
-			if j < 10:
-				print (append_line)
 		data.append(append_line)
 	f.close()
 	return data
@@ -96,11 +92,7 @@ def compute_missing_data(data):
 
 def mlp(x,y):
 	clf = MLPClassifier(solver='lbfgs', alpha=1e-5,
-<<<<<<< Updated upstream
                      hidden_layer_sizes=(100,100,100,100,100,100,100,100,100,100,100,100,100), random_state=1)
-=======
-                     hidden_layer_sizes=(100,100,100,100,100), random_state=1)
->>>>>>> Stashed changes
 	scores = cross_val_score(estimator=clf, X=x, y=y, cv=10, n_jobs=4)
 	print("MLP (alpha=1e-5) 10 Cross Validation Accuracy: %0.2f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
 
@@ -233,20 +225,26 @@ def knn(x, y, k=15, graph=None):
 
 def knn_graph(x, y):
 	x_axis =[]
-	y_axis = []
+	y1_axis = []
+	y2_axis = []
 	for k in range(1,30):
 		n_neighbors = k
 		h = .02  # step size in the mesh
 		weights = ['uniform', 'distance']
-		clf = neighbors.KNeighborsClassifier(n_neighbors, weights=weights[1])
-		scores = cross_val_score(estimator=clf, X=x, y=y, cv=10, n_jobs=4)
-		y_axis.append(scores.mean())
+		clf_1 = neighbors.KNeighborsClassifier(n_neighbors, weights=weights[1])
+		clf_2 = neighbors.KNeighborsClassifier(n_neighbors, weights=weights[0])
+		scores_1 = cross_val_score(estimator=clf_1, X=x, y=y, cv=10, n_jobs=4)
+		scores_2 = cross_val_score(estimator=clf_2, X=x, y=y, cv=10, n_jobs=4)
+		y1_axis.append(scores_1.mean())
+		y2_axis.append(scores_2.mean())
 		x_axis.append(k)
-		print("%dNN 10-fold Cross Validation Accuracy: %0.2f (+/- %0.2f)" % (k, scores.mean(), scores.std() * 2))
+		print("%dNN 10-fold Cross Validation Accuracy: %0.2f (+/- %0.2f) weights %s" % (k, scores_1.mean(), scores_1.std() * 2, weights[1]))
+		print("%dNN 10-fold Cross Validation Accuracy: %0.2f (+/- %0.2f) weights %s" % (k, scores_2.mean(), scores_2.std() * 2, weights[0]))
 
-
-	plt.plot(x_axis, y_axis)
-	plt.show()
+	plt.plot(x_axis, y1_axis, 'r-', x_axis, y2_axis, 'b-.')
+  	plt.show()
+	# plt.plot(x_axis, y_axis)
+	# plt.show()
 
 def decision_tree(x, y, output_file=None, colored=True, graph=False):
 	"""
@@ -317,8 +315,8 @@ def main():
 	assert len(np_x) == len(np_y)
 	# decision_tree(np_x, np_y)
 	# knn(np_x, np_y, k=15, graph=True)
-	# knn_graph(np_x, np_y)
-	mlp(np_x,np_y)
+	knn_graph(np_x, np_y)
+	# mlp(np_x,np_y)
 	# mlp_graphs(np_x, np_y)
 
 if __name__ == '__main__':
