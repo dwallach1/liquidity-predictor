@@ -147,7 +147,8 @@ def dropped():
 ```
 
 To generate the third dataset, we use the same read_training_data function but instead of dropped,
-we use a fill in function.
+we use a fill in function. The filled in function uses a compute missing data function that uses
+a helper function to generate the means and replace the missing attributes.
 
 ```python
 def get_means(data):
@@ -247,5 +248,24 @@ def read_training_data(fname, drop=None):
 	return data
 ```
 
+By doing this, we are able to iterate through which attribute we want to drop and use them to get
+the accuracy of the classifier. This is shown below:
+
+```python
+	for j in range(0,10):
+		_data = read_training_data(train_file, drop=j)
+		headers = _data[0]
+		data = _data[1:]
+		assert(len(headers) == len deata[1])
+		
+		X = [attrs[1:] for attrs in data] # data with the class attribute missing
+		Y = [int(_class[0]) for _class in data] # classifications for the data	
+		np_x = np.array(X)
+		np_y = np.array(Y)
+		assert len(np_x) == len(np_y)
+		
+		print("Finding Decision Tree for dropping attribute %s", headers[j])
+		decision_tree(np_x, np_y)
+```
 
 
