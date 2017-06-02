@@ -47,6 +47,7 @@ Naive Bayes 			|			 	 		|	93%	|
 
 
 _K-Nearest Neighbors_
+
 The graph below depicts the accuracy of the KNN algorithm for a K values in the range 0 to 30. The red 
 dotted line uses a distance function to determine the proximity of the neighbors while the red line 
 uses a uniform function to calculate neighbors. As you can see, the uniform distance 
@@ -55,13 +56,24 @@ slightly above 93% accuracy. These values were calculated using the filled in da
 ![KNN Graph](/graphs/KNN.png)
 
 
+Because at a K of 15 for the KNN algorithm converges on the maximum accuracy, we used this K to 
+determine the values when dropping attributes. The accuracy results using the filled in dataset 
+we found are depicted below: 
+
+
+Drop Attribute |attr_1 | attr_2 | attr_3 | attr_4 | attr_5 | attr_6 | attr_7 | attr_8 | attr_9 | attr_10 |
+---------------|-------|--------|--------|--------|--------|--------|--------|--------|--------|---------|
+		 	 |	96%	 |	89%   | 90%    | 90% 	|90%     | 90%    |	90%	   |  89%	|  90%   | 90%	   |
+
 _Decsion Trees_
+
 Dropping attribues for the decision tree classifier on the filled in dataset, we get the following 
 accuracy results:
 
-attr_1 | attr_2 | attr_3 | attr_4 | attr_5 | attr_6 | attr_7 | attr_8 | attr_9 | attr_10 |
--------|--------|--------|--------|--------|--------|--------|--------|--------|---------|
-96%	   |	89% | 90% 	 | 90% 	  |90%     | 90% 	|	90%	 |  89%	  |  90%   | 90%	 |
+Drop Attribute |attr_1 | attr_2 | attr_3 | attr_4 | attr_5 | attr_6 | attr_7 | attr_8 | attr_9 | attr_10 |
+---------------|-------|--------|--------|--------|--------|--------|--------|--------|--------|---------|
+Weights=Uniform |98% |93%   | 93%    | 93% 	|93%     | 94%    |	93%	   |  93%	|  93%   | 93%	   |
+Weights=Distance |98% |93%   | 93%    | 93% |93%     | 93%    |	93%	   |  93%	|  93%   | 93%	   |
 
 
 
@@ -103,15 +115,19 @@ def read_training_data(fname, drop=None):
 		if j == 0:
 			# if it is the header file, parse as is (string)
 			if drop != None:
-				append_line = [line[header] for header in range(col_start, col_end)].remove(drop)
+				append_line = [line[header] for header in range(col_start, col_end)]
+				_a = append_line.pop(drop)
 			else:
 				append_line = [line[header] for header in range(col_start, col_end)]
 		if j != 0:
 			# otherwise, cast as float
 			if drop != None:
-				append_line = [float(line[cell]) for cell in range(col_start,col_end)].remove(drop)
+				append_line = [float(line[cell]) for cell in range(col_start,col_end)]
+				_a = append_line.pop(drop)
 			else:
 				append_line = [float(line[cell]) for cell in range(col_start,col_end)]
+		if j < 10:
+			print (append_line)
 		data.append(append_line)
 	f.close()
 	return data

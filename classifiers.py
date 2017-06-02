@@ -56,8 +56,6 @@ def read_training_data(fname, drop=None):
 				_a = append_line.pop(drop)
 			else:
 				append_line = [float(line[cell]) for cell in range(col_start,col_end)]
-		if j < 10:
-			print (append_line)
 		data.append(append_line)
 	f.close()
 	return data
@@ -198,7 +196,6 @@ def knn(x, y, k=15, graph=None):
 	Returns:
 		Nothing
 	"""
-	print ('\nbuilding knn classifier ...')
 	n_neighbors = k
 	h = .02  # step size in the mesh
 		# Create color maps
@@ -316,14 +313,14 @@ def main():
 	# train_file = 'data/cs-training.csv'
 	train_file = 'data/training_no_missing_attrs.csv'
 
-	for j in range(0,11):
+	for j in range(0,10):
 		_data = read_training_data(train_file, drop=j)
 
 		# if reading from the original dataset then uncomment the following line
 		# d = compute_missing_data(d_missing)
 		
 		headers = _data[0]
-		print("headers are %s" % headers)
+		# print("headers are %s" % headers)
 		
 		data = _data[1:]
 		X = [attrs[1:] for attrs in data] # data with the class attribute missing
@@ -331,9 +328,10 @@ def main():
 		np_x = np.array(X)
 		np_y = np.array(Y)
 		assert len(np_x) == len(np_y)
-		print("Finding Decision tree for dropping attribute %s", headers[j])
-		decision_tree(np_x, np_y)
-		# knn(np_x, np_y, k=15, graph=True)
+		# print("Finding Decision Tree for dropping attribute %s", headers[j])
+		print("Finding 15-NN for dropping attribute %s", headers[j])
+		# decision_tree(np_x, np_y)
+		knn(np_x, np_y, k=15, graph=False)
 		# knn_graph(np_x, np_y)
 		# mlp(np_x,np_y)
 		# mlp_graphs(np_x, np_y)
