@@ -14,6 +14,10 @@ The classifiers we used were:
 - Nearest Neighbor
 
 
+The Programs we used to develop our results are:
+- [Scikit learn](http://scikit-learn.org/stable/index.html) (a Python package)
+- [Weka](http://www.cs.waikato.ac.nz/ml/weka/)
+
 # Results
 
 _Overview_
@@ -39,8 +43,8 @@ and the dropped dataset.
 
 Classifier | Dropping Missing Attributes (Best) | Replacing Missing Attributes |
 -----------|------------------------------------|------------------------------|
-Decision Tree 			| 				 		|	90%	|
-Nearest Neighbor 		| 						|	93%	|
+Decision Tree 			| 	96%			 		|	90%	|
+Nearest Neighbor 		| 	98%					|	93%	|
 Multilayer Perceptron 	|						|	93%	|
 Logistic Regression 	|						|	93%	|
 Naive Bayes 			|			 	 		|	93%	|
@@ -128,8 +132,6 @@ def read_training_data(fname, drop=None):
 				_a = append_line.pop(drop)
 			else:
 				append_line = [float(line[cell]) for cell in range(col_start,col_end)]
-		if j < 10:
-			print (append_line)
 		data.append(append_line)
 	f.close()
 	return data
