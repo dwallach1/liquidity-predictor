@@ -103,9 +103,9 @@ def compute_missing_data(data):
 
 def mlp(x,y):
 	clf = MLPClassifier(solver='lbfgs', alpha=1e-5,
-                     hidden_layer_sizes=(100,100,100,100,100,100,100,100,100,100,100,100,100), random_state=1)
+                     hidden_layer_sizes=(6,6), random_state=1)
 	scores = cross_val_score(estimator=clf, X=x, y=y, cv=10, n_jobs=4)
-	print("MLP (alpha=1e-5) 10 Cross Validation Accuracy: %0.2f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
+	print("MLP (alpha=1e-5) 10 Cross Validation Accuracy: %0.4f (+/- %0.4f)" % (scores.mean(), scores.std() * 2))
 
 def mlp_graphs(X, y):
 	h = .02  # step size in the mesh
@@ -325,10 +325,11 @@ def main():
 	np_x = np.array(X)
 	np_y = np.array(Y)
 	assert len(np_x) == len(np_y)
-	# decision_tree(np_x, np_y)
+	decision_tree(np_x, np_y)
 	# knn(np_x, np_y, k=15, graph=False)
-	knn_graph(np_x, np_y)
+	# knn_graph(np_x, np_y)
 	# mlp_graphs(np_x, np_y)
+	# mlp(np_x,np_y)
 	# decision_tree(np_x, np_y, headers=headers[1:], output_file="graphs/dt-newest.pdf", graph=True, colored=True)
 
 	# for j in range(1,11):
