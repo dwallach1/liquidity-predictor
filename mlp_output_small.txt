@@ -1,0 +1,151 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.MultilayerPerceptron -L 0.3 -M 0.2 -N 500 -V 0 -S 0 -E 20 -H a -R
+Relation:     training_no_missing_attrs_SMALL-weka.filters.unsupervised.attribute.NumericToNominal-Rfirst
+Instances:    29999
+Attributes:   11
+              SeriousDlqin2yrs
+              RevolvingUtilizationOfUnsecuredLines
+              age
+              NumberOfTime30-59DaysPastDueNotWorse
+              DebtRatio
+              MonthlyIncome
+              NumberOfOpenCreditLinesAndLoans
+              NumberOfTimes90DaysLate
+              NumberRealEstateLoansOrLines
+              NumberOfTime60-89DaysPastDueNotWorse
+              NumberOfDependents
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Sigmoid Node 0
+    Inputs    Weights
+    Threshold    -3.1125107676499058
+    Node 2    2.189981198355015
+    Node 3    0.9857640734319848
+    Node 4    1.150463580134529
+    Node 5    1.212014771084983
+    Node 6    0.9598700069669099
+    Node 7    1.4584806816379285
+Sigmoid Node 1
+    Inputs    Weights
+    Threshold    3.112510767649905
+    Node 2    -2.1899811983550155
+    Node 3    -0.9857640734319826
+    Node 4    -1.1504635801345273
+    Node 5    -1.2120147710849842
+    Node 6    -0.9598700069669104
+    Node 7    -1.4584806816379288
+Sigmoid Node 2
+    Inputs    Weights
+    Threshold    -74.65872702643762
+    Attrib RevolvingUtilizationOfUnsecuredLines    72.33896976034326
+    Attrib age    -1.5901041678263368
+    Attrib NumberOfTime30-59DaysPastDueNotWorse    -33.57556111375566
+    Attrib DebtRatio    1.0863717239200337
+    Attrib MonthlyIncome    65.14678998327594
+    Attrib NumberOfOpenCreditLinesAndLoans    12.358327637907317
+    Attrib NumberOfTimes90DaysLate    -120.17359428147653
+    Attrib NumberRealEstateLoansOrLines    13.352516875668028
+    Attrib NumberOfTime60-89DaysPastDueNotWorse    -82.68120114772303
+    Attrib NumberOfDependents    -1.3772909944325518
+Sigmoid Node 3
+    Inputs    Weights
+    Threshold    -58.469610759977854
+    Attrib RevolvingUtilizationOfUnsecuredLines    55.64326737840339
+    Attrib age    1.5235662706513167
+    Attrib NumberOfTime30-59DaysPastDueNotWorse    -60.91848762843764
+    Attrib DebtRatio    -0.17970742413394805
+    Attrib MonthlyIncome    54.71295638573346
+    Attrib NumberOfOpenCreditLinesAndLoans    -0.5268190581681533
+    Attrib NumberOfTimes90DaysLate    -59.018113905257934
+    Attrib NumberRealEstateLoansOrLines    -2.7863354776188576
+    Attrib NumberOfTime60-89DaysPastDueNotWorse    -46.01183158736107
+    Attrib NumberOfDependents    -1.107759316366423
+Sigmoid Node 4
+    Inputs    Weights
+    Threshold    -48.69402260107936
+    Attrib RevolvingUtilizationOfUnsecuredLines    46.14298608918176
+    Attrib age    2.598643084523215
+    Attrib NumberOfTime30-59DaysPastDueNotWorse    -45.58510970974759
+    Attrib DebtRatio    0.4783729156112852
+    Attrib MonthlyIncome    42.691804374749395
+    Attrib NumberOfOpenCreditLinesAndLoans    -0.5740832306086788
+    Attrib NumberOfTimes90DaysLate    -49.40860308368449
+    Attrib NumberRealEstateLoansOrLines    -1.8228246019923864
+    Attrib NumberOfTime60-89DaysPastDueNotWorse    -39.660603970207326
+    Attrib NumberOfDependents    -0.8766530538528807
+Sigmoid Node 5
+    Inputs    Weights
+    Threshold    -43.377216552332804
+    Attrib RevolvingUtilizationOfUnsecuredLines    40.76879200437018
+    Attrib age    4.786560634887329
+    Attrib NumberOfTime30-59DaysPastDueNotWorse    -45.10690229354347
+    Attrib DebtRatio    4.073139969163267
+    Attrib MonthlyIncome    40.11087674950987
+    Attrib NumberOfOpenCreditLinesAndLoans    -0.7819158860752501
+    Attrib NumberOfTimes90DaysLate    -45.72116205828203
+    Attrib NumberRealEstateLoansOrLines    -2.3905285777654957
+    Attrib NumberOfTime60-89DaysPastDueNotWorse    -36.481121291651114
+    Attrib NumberOfDependents    2.2374595151439203
+Sigmoid Node 6
+    Inputs    Weights
+    Threshold    -43.53635387331903
+    Attrib RevolvingUtilizationOfUnsecuredLines    41.50358712731319
+    Attrib age    0.9583133405828321
+    Attrib NumberOfTime30-59DaysPastDueNotWorse    -32.467365751258015
+    Attrib DebtRatio    -1.5756714666477476
+    Attrib MonthlyIncome    46.131097728102645
+    Attrib NumberOfOpenCreditLinesAndLoans    -18.756849405077233
+    Attrib NumberOfTimes90DaysLate    -46.02855053288103
+    Attrib NumberRealEstateLoansOrLines    -4.465550401969915
+    Attrib NumberOfTime60-89DaysPastDueNotWorse    -36.52378569051037
+    Attrib NumberOfDependents    2.1457071948410253
+Sigmoid Node 7
+    Inputs    Weights
+    Threshold    -72.37447441310206
+    Attrib RevolvingUtilizationOfUnsecuredLines    69.71634744801314
+    Attrib age    0.12224186595348752
+    Attrib NumberOfTime30-59DaysPastDueNotWorse    -72.30632893539085
+    Attrib DebtRatio    1.7435499819648426
+    Attrib MonthlyIncome    67.54548334115616
+    Attrib NumberOfOpenCreditLinesAndLoans    2.1249573472070185
+    Attrib NumberOfTimes90DaysLate    -75.72647963266516
+    Attrib NumberRealEstateLoansOrLines    -5.335156953478046
+    Attrib NumberOfTime60-89DaysPastDueNotWorse    -60.604541143581315
+    Attrib NumberOfDependents    -0.5816359352706097
+Class 0
+    Input
+    Node 0
+Class 1
+    Input
+    Node 1
+
+
+Time taken to build model: 20.49 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances       23746               79.156  %
+Incorrectly Classified Instances      6253               20.844  %
+Kappa statistic                          0.4998
+Mean absolute error                      0.3023
+Root mean squared error                  0.3896
+Relative absolute error                 67.9364 %
+Root relative squared error             82.5843 %
+Total Number of Instances            29999     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.908    0.439    0.804      0.908    0.853      0.511    0.821     0.878     0
+                 0.561    0.092    0.753      0.561    0.643      0.511    0.821     0.729     1
+Weighted Avg.    0.792    0.323    0.787      0.792    0.783      0.511    0.821     0.829     
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 18126  1847 |     a = 0
+  4406  5620 |     b = 1
