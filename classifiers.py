@@ -310,44 +310,45 @@ def decision_tree(x, y, headers=None, output_file=None, colored=True, graph=Fals
 
 def main():
 	# train_file = 'data/cs-training.csv'
-	train_file = 'data/training_no_missing_attrs.csv'
+	# train_file = 'data/training_no_missing_attrs.csv'
 	# train_file = 'data/training_missing_dropped.csv'
+	train_file = 'data/training_no_missing_attrs_SMALL.csv'
 
-	# _data = read_training_data(train_file)
-	# headers = _data[0]
+	_data = read_training_data(train_file)
+	headers = _data[0]
 
-	# data = _data[1:]
-	# assert(len(headers) == len(data[1]))
+	data = _data[1:]
+	assert(len(headers) == len(data[1]))
 	
-	# X = [attrs[1:] for attrs in data] # data with the class attribute missing
-	# Y = [int(_class[0]) for _class in data] # classifications for the data	
-	# np_x = np.array(X)
-	# np_y = np.array(Y)
-	# assert len(np_x) == len(np_y)
-	# # decision_tree(np_x, np_y)
+	X = [attrs[1:] for attrs in data] # data with the class attribute missing
+	Y = [int(_class[0]) for _class in data] # classifications for the data	
+	np_x = np.array(X)
+	np_y = np.array(Y)
+	assert len(np_x) == len(np_y)
+	# decision_tree(np_x, np_y)
 	# knn(np_x, np_y, k=15, graph=False)
-	# knn_graph()
-	# # mlp_graphs(np_x, np_y)
-	# # decision_tree(np_x, np_y, headers=headers[1:], output_file="graphs/dt-newest.pdf", graph=True, colored=True)
+	knn_graph(np_x, np_y)
+	# mlp_graphs(np_x, np_y)
+	# decision_tree(np_x, np_y, headers=headers[1:], output_file="graphs/dt-newest.pdf", graph=True, colored=True)
 
-	for j in range(1,11):
-		_data = read_training_data(train_file, drop=j)		
-		headers = _data[0]
+	# for j in range(1,11):
+	# 	_data = read_training_data(train_file, drop=j)		
+	# 	headers = _data[0]
 		
-		data = _data[1:]
-		assert(len(headers) == len (data[1]))
-		X = [attrs[1:] for attrs in data] # data with the class attribute missing
-		Y = [int(_class[0]) for _class in data] # classifications for the data	
-		np_x = np.array(X)
-		np_y = np.array(Y)
+	# 	data = _data[1:]
+	# 	assert(len(headers) == len (data[1]))
+	# 	X = [attrs[1:] for attrs in data] # data with the class attribute missing
+	# 	Y = [int(_class[0]) for _class in data] # classifications for the data	
+	# 	np_x = np.array(X)
+	# 	np_y = np.array(Y)
 
-		assert(len(np_x[0]) == 9)
-		assert len(np_x) == len(np_y)
-		# print("Finding Decision Tree for dropping attribute %s", j)
-		print("Finding 15-NN for dropping attribute %s", j)
-		# decision_tree(np_x, np_y)
-		knn(np_x, np_y, k=15, graph=False)
-		# mlp(np_x,np_y)
+	# 	assert(len(np_x[0]) == 9)
+	# 	assert len(np_x) == len(np_y)
+	# 	# print("Finding Decision Tree for dropping attribute %s", j)
+	# 	print("Finding 15-NN for dropping attribute %s", j)
+	# 	# decision_tree(np_x, np_y)
+	# 	knn(np_x, np_y, k=15, graph=False)
+	# 	# mlp(np_x,np_y)
 
 if __name__ == '__main__':
 	main()
