@@ -252,7 +252,7 @@ def knn_graph(x, y):
 		print("%dNN 10-fold Cross Validation Accuracy: %0.4f (+/- %0.2f) weights %s" % (k, scores_2.mean(), scores_2.std() * 2, weights[0]))
 
 	plt.plot(x_axis, y1_axis, 'r-', x_axis, y2_axis, 'b-.')
-  	plt.show()
+	plt.show()
 	# plt.plot(x_axis, y_axis)
 	# plt.show()
 
