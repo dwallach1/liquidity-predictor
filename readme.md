@@ -1,13 +1,16 @@
 
-# Liquiditity Predictor
+# Predicting Likelihood of Financial Distress
 __Nicholas Kostiantos, Heath Reineke & David Wallach__
 
 
-We used machine learning algorithms to develop a model that best predicts a potential borrower's future 
-liquidity. For each classifier, we used 10-fold cross validation to determine the accuracy 
-of the classifier given our dataset. For missing attributes, we developed statistics by both dropping 
-training examples with missing attributes as well as replacing missing attributes with their means 
-relative to the entire dataset. 
+__Abstract__
+
+Bank’s play a critical role in market economies by operating as a source of credit and by deciding who can have access to credit and on what terms. Access to credit is a major ingredient for increased economic activity. However, a disturbance in this cycle of credit can have catastrophic consequences. Our task is to help borrowers and lenders make the best financial decisions by building a model that accurately predicts if a borrower will default on a loan within a two year time period. 
+ 
+To approach this problem, we leveraged a dataset of 150,000 borrowers with attributes such as age, monthly income, debt ratio, number of open credit lines, and number of times of late over various time periods. All the attributes are numeric. From here, we trained our data with 5 different classification learners and applied 10-fold cross validation to measure the results. While the accuracy of the model may be very useful for the lenders, the borrowers would benefit most by understanding which attributes have the biggest bearing on determining if they will default on their loan as they can only realistically improve on a couple attributes in the near future. 
+ 
+Of all the learners, the Decision Tree classifier performed the best, correctly classifying 82.09 percent of the instances in the validation set. Of all the features, NumberOfTimes90DaysLate and RevolvingUtilizationOfUnsecuredLines  were two most important features. We concluded this by dropping out features from the dataset and training the learners on the new dataset without the feature. From here, we were looking for which feature, when missing from the dataset, created the largest decline in accuracy of the model as compared to the model trained with the full dataset. 
+
 
 The classifiers we used were:
 - Decision Trees
