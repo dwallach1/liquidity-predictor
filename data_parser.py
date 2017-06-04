@@ -1,21 +1,23 @@
 import csv 
+import random
 
-def read_training_data(fname, dropped=False):
-	col_start = 0
-	col_end = 11
+def read_training_data(fname, N, dropped=False):
+	col_start = 1
+	col_end = 12
 	data = []
-	N = 120000
+	# N = 120000
 	x = 0
 	f = open(fname)
 	csv_reader = csv.reader(f)
 	for line in csv_reader:
 	    append_line = [line[i] for i in range(col_start,col_end)]
-	    if append_line[0] == '0' and x <= N:
-	    	x += 1
-	    	continue
 	    if dropped:
 		    if "NA" in append_line:
 		    	continue
+
+	    if append_line[0] == '0' and x <= N:
+	    	x += 1
+	    	continue
 	    data.append(append_line)
 	f.close()
 	print(len(data))
@@ -50,7 +52,6 @@ def get_means(data):
 	# print ("means are %s" % means)
 	return means
 
-
 def compute_missing_data(data):
 	"""
 	fills in the missing attribute with the means of the associated columns 
@@ -69,13 +70,11 @@ def compute_missing_data(data):
 				# print ("setting value to mean of %s" % means[j])
 	return data		
 
-
 def generate_filled_in_small():
-	d = read_training_data('data/training_no_missing_attrs.csv')	
-	# d_new = compute_missing_data(d)
-	# d_new2 =/compress(d_new)
-	
-	with open("data/training_no_missing_attrs_SMALL.csv", "wb") as f:
+	N = random.randint(100000, 130000)
+	d = read_training_data('data/training_no_missing_attrs.csv', N)
+	f_out = "data/training_no_missing_attrs_SMALL_" + str(N) + ".csv"
+	with open(f_out, "wb") as f:
 	    writer = csv.writer(f)
 	    writer.writerows(d)
 
@@ -89,15 +88,16 @@ def generate_filled_in():
 	    writer.writerows(d_new)
 
 def generate_dropped():
-	d_new = read_training_data('data/cs-training.csv', dropped=True)	
+	d_new = read_training_data('data/cs-training.csv', 100000, dropped=True)	
 
-	with open("data/training_missing_dropped.csv", "wb") as f:
+	with open("data/training_missing_dropped_SMALL.csv", "wb") as f:
 	    writer = csv.writer(f)
 	    writer.writerows(d_new)
 
 def main():
-	generate_filled_in_small()
-	# generate_dropped()
+	# for j in range(0, 14):
+	# 	generate_filled_in_small()
+	generate_dropped()
 
 if __name__ == '__main__':
 	main()

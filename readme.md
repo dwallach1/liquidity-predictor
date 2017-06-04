@@ -14,12 +14,13 @@ The classifiers we used were:
 - Nearest Neighbor
 
 
-
 The Programs we used to develop our results are:
 - [Scikit learn](http://scikit-learn.org/stable/index.html) (a Python package)
-- [Weka](http://www.cs.waikato.ac.nz/ml/weka/)
+- [Weka](http://www.cs.waikato.ac.nz/ml/weka/) (a desktop application)
 
-# Attributes
+# The Data
+
+__Attributes__
 
 Feature |Variable Name | Description | Type |
 --------|--------------|-------------|------|
@@ -69,6 +70,7 @@ Logistic Regression 	|			|	93%		 |
 Naive Bayes 			|			|	93%		 |
 
 
+
 __K-Nearest Neighbors__
 
 The graph below depicts the accuracy of the KNN algorithm for a K values in the range 0 to 30. The red 
@@ -76,7 +78,7 @@ dotted line uses a distance function to determine the proximity of the neighbors
 uses a uniform function to calculate neighbors. As you can see, the uniform distance 
 did better overall, but as K increased both methods converged on a similar value 
 slightly above 93% accuracy. These values were calculated using the filled in dataset.
-![KNN Graph](/graphs/KNN.png)
+![KNN Graph](/graphs/KNN_smalldata.png)
 
 
 Because at a K of 15 for the KNN algorithm converges on the maximum accuracy, we used this K to 
@@ -268,5 +270,3 @@ the accuracy of the classifier. This is shown below:
 		print("Finding Decision Tree for dropping attribute %s", headers[j])
 		decision_tree(np_x, np_y)
 ```
-
-
