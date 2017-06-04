@@ -155,14 +155,6 @@ a helper function to generate the means and replace the missing attributes.
 
 ```python
 def get_means(data):
-	"""
-	get the mean values of each columns to fill missing attribute values
-	input:
-		a list of lists representing the excel data
- 
-	returns:
-		single list of means associated with each column
-	"""
 	totals = [[] for x in range(0, 11)]
 	entries = [0] * 11
 	header = 0
@@ -181,15 +173,6 @@ def get_means(data):
 
 
 def compute_missing_data(data):
-	"""
-	fills in the missing attribute with the means of the associated columns 
-
-	inputs:
-		a list of lists representing the excel data
-
-	returns:
-		the same lists of lists with the missing attributes filled in
-	"""
 	means = get_means(data)
 	for d in data:
 		for j,x in enumerate(d):
@@ -218,14 +201,6 @@ determines if there is an attribute we want to drop.
 
 ```python
 def read_training_data(fname, drop=None):
-	"""
-	Input:
-		fname -- (string) the path to the csv file of data
-		drop -- (None or int) defaulted to none, otherwise indicated index to drop
-
-	Returns:
-		the orginal dataset in an array format with attribute dropped in drop is not None
-	"""
 	col_start = 0
 	col_end = 11  # number of attributes
 	data = []

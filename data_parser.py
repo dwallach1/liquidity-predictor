@@ -2,10 +2,7 @@ import csv
 import random
 
 def read_training_data(fname, col_start, col_end, N=0, dropped=False):
-	# col_start = 1
-	# col_end = 12
 	data = []
-	# N = 120000
 	x = 0
 	f = open(fname)
 	csv_reader = csv.reader(f)
