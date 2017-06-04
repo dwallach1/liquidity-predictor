@@ -28,8 +28,8 @@ __Means__ | __N/A__ | __70.92755%__ | __82.08595%__ |  __76.04915__  | __78.4131
 
  
  ** The Dropped dataset only went up to an N of 110,000 because a value for N any greater than that caused the dataset
- to be only comprised of the same classifications. This is because in the Dropped dataset, we are also dropping examples 
- that have missing attributes. 
+ to be only comprised of examples with the same classifications. This is because in the Dropped dataset, we are 
+ also dropping examples that have missing attributes. 
 
 
 Parsing the results above, we can see that the decision tree classifier consistently outperformed the others. For this reason, we took 
@@ -61,3 +61,6 @@ the root of the tree when no attributes were dropped. The reason that the drop i
 "RevolvingUtilizationOfUnsecuredLines", the accuracy fell to 73.4337%. 
 
 ![DecisionTreeAccuracyGraph](/graphs/DT_accuracy.png)
+
+From this graph, we see that dropping certain attributes, numbers 4 and 10, actually yield higher accuracies than the baseline
+of dropping no attributes. This is could be because attribute 4 (DebtRatio) and attribute 10 (NumberOfDependents), 
