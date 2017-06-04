@@ -63,17 +63,18 @@ and the dropped dataset.
 
 Classifier | Dropped Dataset | Filled in Dataset |
 -----------|-----------------|-------------------|
-Decision Tree 			| 	89.17%	|	89.82%	 |
+ZeroR					|   93.05%  |   93.32%   |
+Decision Tree 			| 	93.27%	|	93.55%	 |
 Nearest Neighbor 		| 	93.07%	|	93.35%	 |
-Multilayer Perceptron 	|			|	93%		 |
-Logistic Regression 	|			|	93%		 |
-Naive Bayes 			|			|	93%		 |
+Multilayer Perceptron 	|	92.83%	|	92.92%	 |
+Logistic Regression 	|	93.12%	|	93.39%	 |
+Naive Bayes 			|	93.00%	|	93.28%	 |
 
 
 
 __K-Nearest Neighbors__
 
-The graph below depicts the accuracy of the KNN algorithm for a K values in the range 0 to 30. The red 
+The graph below depicts the accuracy of the KNN algorithm for a K values in the range 0 to 30 using the sci-kit KNN algorithm. The red 
 dotted line uses a distance function to determine the proximity of the neighbors while the red line 
 uses a uniform function to calculate neighbors. As you can see, the uniform distance 
 did better overall, but as K increased both methods converged on a similar value 
@@ -95,27 +96,23 @@ Filled-In| Distance|93.28%|93.25% | 93.30% | 93.28% |93.29%  | 93.26% |	93.29% |
 
 __Decsion Trees__
 
-Dropping attribues for the decision tree classifier on the filled in dataset, we get the following 
+Dropping attribues for the decision tree classifier in Weka on the filled in dataset, we get the following 
 accuracy results:
 
 Dataset | attr_1 | attr_2 | attr_3 | attr_4 | attr_5 | attr_6 | attr_7 | attr_8 | attr_9 | attr_10 |
 --------|--------|--------|--------|--------|--------|--------|--------|--------|--------|---------|
-Dropped |89.02%  |89.31%  | 88.97% | 89.07% |89.20%  | 89.27% |88.80%  |  89.21%|  89.04%| 89.12%  |
-Filled-In| 89.37%| 89.80% | 89.60% | 89.66% | 89.78% | 89.86% | 89.29% | 89.89% | 89.63% | 89.79%  | 
-
-
-
-__Multilayer Perceptrons__
-
-
-
-__Naive Bayes__
-
-
+Dropped  | 93.27%| 93.33% | 93.31% | 93.30% |93.25%  | 93.29% |93.10% | 93.34% |  93.27%| 93.34%  |
+Filled-In| 93.56%| 93.52% | 93.62% | 93.55% | 93.57% | 93.57% | 93.43% | 93.61% | 93.50% | 93.57%  | 
 
 
 __Logistic Regression__
 
+Finally, we dropped all attributes individually from both datasets in Weka and ran logistic regressions on them. The results of those tests in 10-fold cross validation are the following:
+
+Dataset | attr_1 | attr_2 | attr_3 | attr_4 | attr_5 | attr_6 | attr_7 | attr_8 | attr_9 | attr_10 |
+--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|---------|
+Dropped  | %| % | % | % |%  | % | % | % |  %| %  |
+Filled-In| 93.39%| 93.40% | 93.37% | 93.39% | 93.38% | 93.39% | 93.32% | % | 93.33% | 93.39%  | 
 
 
 # The Code
