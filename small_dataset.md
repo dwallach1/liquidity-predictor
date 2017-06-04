@@ -59,4 +59,4 @@ the root of the tree when no attributes were dropped. The reason that the drop i
 "RevolvingUtilizationOfUnsecuredLines" had a lot of information gain as well. When we dropped both "NumberOfTimes90DaysLate" and 
 "RevolvingUtilizationOfUnsecuredLines", the accurcay fell to 73.4337%. 
 
-[DecisionTreeAccuracy](/graphs/DT_dropping.png)
+![DecisionTreeAccuracyGraph](/graphs/DT_dropping.png)
