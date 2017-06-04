@@ -54,7 +54,7 @@ Finally, we dropped all attributes individually from both datasets in Weka and r
 
 Dataset | attr_1 | attr_2 | attr_3 | attr_4 | attr_5 | attr_6 | attr_7 | attr_8 | attr_9 | attr_10 |
 --------|--------|--------|--------|--------|--------|--------|--------|--------|--------|---------|
-Dropped  |93.12 %| 93.12% | 93.10% | 93.12% | 93.12% | 93.11% | 93.06% | 93.11% |  93.07%| 93.13%  |
+Dropped  |93.12%| 93.12% | 93.10% | 93.12% | 93.12% | 93.11% | 93.06% | 93.11% |  93.07%| 93.13%  |
 Filled-In| 93.39%| 93.40% | 93.37% | 93.39% | 93.38% | 93.39% | 93.32% | 93.38% | 93.33% | 93.39%  | 
 
 
@@ -65,7 +65,7 @@ dotted line uses a distance function to determine the proximity of the neighbors
 uses a uniform function to calculate neighbors. As you can see, the uniform distance 
 did better overall, but as K increased both methods converged on a similar value 
 slightly above 93% accuracy. These values were calculated using the filled in dataset.
-![KNN Graph](/graphs/KNN_smalldata.png)
+![KNN Graph](/graphs/KNN.png)
 
 
 Because at a K of 15 for the KNN algorithm converges on the maximum accuracy, we used this K to 

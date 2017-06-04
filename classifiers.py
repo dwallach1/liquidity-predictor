@@ -306,6 +306,16 @@ def decision_tree(x, y, headers=None, output_file=None, colored=True, graph=Fals
 	clf = tree.DecisionTreeClassifier()
 	scores = cross_val_score(estimator=clf, X=x, y=y, cv=10, n_jobs=4)
 	print("Decison Tree 10-fold Cross Validation Accuracy: %0.4f (+/- %0.4f)" % (scores.mean(), scores.std() * 2))
+
+def create_DT_graphs():
+	y = [76.2388,77.6989,76.7188,78.0539,77.8239,77.6889,76.1788,77.5239,76.9988,77.9539, 73.4337]  
+	y2 = [77.9089,77.9089,77.9089,77.9089,77.9089,77.9089,77.9089,77.9089,77.9089,77.9089,77.9089]
+	x = [1,2,3,4,5,6,7,8,9,10,11]
+	plt.plot(x, y)
+	plt.plot(x, y, 'g-', x, y2, 'b-')
+	plt.ylabel('Accuracy')
+	plt.xlabel('Attribute Dropped')
+	plt.show()
 	
 
 def main():
@@ -353,3 +363,5 @@ def main():
 
 if __name__ == '__main__':
 	main()
+
+
