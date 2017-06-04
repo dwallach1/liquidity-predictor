@@ -13,7 +13,7 @@ the subset, the N is the number of examples dropped, and the difference is the p
 the best classifier's accuracy.
 
 
-Dataset | N | ZeroR | Decision Tree | 25-NN | Logistic Regression | Naive Bayes | Multi-layer Perceptron | Best Classifier| Difference |
+Dataset | N | ZeroR | Decision Tree | 25-NN | Logistic Regression | Naive Bayes | Multilayer Perceptron | Best Classifier| Difference |
 --------|---|-------|---------------|-------|---------------------|-------------|------------------------|----------------|------------|
 Dropped | 90,000 | 72.39% | 81.1253%| 75.3965% |78.6342% | 74.3987% |             80.4645%              |Decision Tree |8.7353% |
 Dropped | 100,000 | 58.7675% | 77.6199% | 67.7669%  | 73.6728% | 63.4547% |       75.1530%				| Decision Tree | 18.8524% |
@@ -25,6 +25,17 @@ Filled-in | 120,000 | 66.5789% | 80.306% |  72.3824%  | 75.6959% | 67.5923% |   
 Filled-in | 130,000 | 50.1235% | 77.9089% |    66.8333%   | 72.6736% | 51.9126% | 73.6987%							 | Decision Tree | 27.7854% |
 __Means__ | __N/A__ | __70.92755%__ | __82.08595%__ |  __76.04915__  | __78.413175%__ | __67.697675%__ | __80.5424%__ | __N/A__ | __11.1584%__ |
 
+
+Average Accuracy of all Classifiers 
+
+Classifier | Accuracy |
+-----------|-----------------|
+ZeroR					|   __70.92755%__   |   
+Decision Tree 			| 	__82.08595%__	|	
+Nearest Neighbor 		| 	__76.04915__	|	
+Multilayer Perceptron 	|	__80.5424%__	|	
+Logistic Regression 	|	__78.413175%__	|
+Naive Bayes 			|	__67.697675%__	|	
 
  
  ** The Dropped dataset only went up to an N of 110,000 because a value for N any greater than that caused the dataset
