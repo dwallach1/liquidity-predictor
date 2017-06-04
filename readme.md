@@ -1,9 +1,28 @@
 
 # Liquiditity Predictor
 __Nicholas Kostiantos, Heath Reineke & David Wallach__
-- [Full Dataset Results](/regular_dataset.md)
-- [Undersampled Dataset Results](/small_dataset.md)
 
+
+We used machine learning algorithms to develop a model that best predicts a potential borrower's future 
+liquidity. For each classifier, we used 10-fold cross validation to determine the accuracy 
+of the classifier given our dataset. For missing attributes, we developed statistics by both dropping 
+training examples with missing attributes as well as replacing missing attributes with their means 
+relative to the entire dataset. 
+
+The classifiers we used were:
+- Decision Trees
+- Logistic Regression
+- Naive Bayes
+- Multilayer Perceptron
+- Nearest Neighbor
+
+
+The Programs we used to develop our results are:
+- [Scikit learn](http://scikit-learn.org/stable/index.html) (a Python package)
+- [Weka](http://www.cs.waikato.ac.nz/ml/weka/) (a desktop application)
+
+
+__Overview__ 
 
 We began with a file containing 150,000 examples. While this may seem good in theory, the data was undersampled
 and therefore not fully representative of the model we were aiming to generate. Of the 150,000 examples 139,974 
@@ -11,6 +30,23 @@ were classified as 0 and only 10,0026 were classified as 1. This led to our Zero
 around 93%. The implications of this were that using more complex classifiers yielded only minimal increases 
 (less than one percent). To combat the undersampling, we used a subset of our training data that had more even 
 distrobution of classifications so that our ZeroR was a value closer to 50%. 
+
+_Attributes_
+
+Feature |Variable Name | Description | Type |
+--------|--------------|-------------|------|
+__Classifier__ | __SeriousDlqin2yrs__ | __Person experienced 90 days past due delinquency or worse__ | __Y/N__ |
+Attr_1 | RevolvingUtilizationOfUnsecuredLines | Total balance on credit cards and personal lines of credit except real estate and no installment debt like car loans divided by the sum of credit limits | percentage
+Attr_2 |age | Age of borrower in years | integer
+Attr_3 | NumberOfTime30-59DaysPastDueNotWorse | Number of times borrower has been 30-59 days past due but no worse in the last 2 years. | integer
+Attr_4 | DebtRatio | Monthly debt payments, alimony,living costs divided by monthy gross income | percentage
+Attr_5 | MonthlyIncome | Monthly income | real
+Attr_6 | NumberOfOpenCreditLinesAndLoans | Number of Open loans (installment like car loan or mortgage) and Lines of credit (e.g. credit cards) | integer
+Attr_7 | NumberOfTimes90DaysLate | Number of times borrower has been 90 days or more past due. | integer
+Attr_8 | NumberRealEstateLoansOrLines | Number of mortgage and real estate loans including home equity lines of credit | integer
+Attr_9 | NumberOfTime60-89DaysPastDueNotWorse | Number of times borrower has been 60-89 days past due but no worse in the last 2 years. | integer
+Attr_10 | NumberOfDependents | Number of dependents in family excluding themselves (spouse, children etc.) | integer
+
 
 
 __Generating the Different Datasets__
@@ -83,5 +119,15 @@ def main():
 		generate_filled_in_small(n)
 		generate_dropped_small(n)
 ```
+
+
+# Results
+
+We generated results for both the Filled-In dataset as well as the Dropped dataset. From there we also partitioned our
+results based on using the full (original dataset) versus using subsets of data with more equal classification 
+distrobutions that we created. The results can be found be following the links below. 
+
+- [Full Dataset Results](/regular_dataset.md)
+- [Undersampled Dataset Results](/small_dataset.md)
 
 

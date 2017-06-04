@@ -1,22 +1,6 @@
 # Liquidity Predictor
 
-We used machine learning algorithms to develop a model that best predicts a potential borrower's future 
-liquidity. For each classifier, we used 10-fold cross validation to determine the accuracy 
-of the classifier given our dataset. For missing attributes, we developed statistics by both dropping 
-training examples with missing attributes as well as replacing missing attributes with their means 
-relative to the entire dataset. 
 
-The classifiers we used were:
-- Decision Trees
-- Logistic Regression
-- Naive Bayes
-- Multilayer Perceptron
-- Nearest Neighbor
-
-
-The Programs we used to develop our results are:
-- [Scikit learn](http://scikit-learn.org/stable/index.html) (a Python package)
-- [Weka](http://www.cs.waikato.ac.nz/ml/weka/) (a desktop application)
 
 # The Data
 
@@ -118,113 +102,7 @@ __Logistic Regression__
 
 
 
-# The Code
 
-
-We first need to create our 3 datasets. We start with the original dataset with missing attributes denoted
-as "NA" (this is one of the three datasets). We then use the following code to generate our second dataset
-with all the examples containing "NA" dropped by calling this .
-
-```python
-def read_training_data(fname, dropped=False):
-	col_start = 1
-	col_end = 12
-	data = []
-	f = open(fname)
-	csv_reader = csv.reader(f)
-	for line in csv_reader:
-	    append_line = [line[i] for i in range(col_start,col_end)]
-	    if dropped:
-		    if "NA" in append_line:
-		    	continue
-	    data.append(append_line)
-	f.close()
-	return data
-
-def dropped():
-	d_new = read_training_data('data/cs-training.csv', dropped=True)	
-
-	with open("data/training_missing_dropped.csv", "wb") as f:
-	    writer = csv.writer(f)
-	    writer.writerows(d_new)
-```
-
-To generate the third dataset, we use the same read_training_data function but instead of dropped,
-we use a fill in function. The filled in function uses a compute missing data function that uses
-a helper function to generate the means and replace the missing attributes.
-
-```python
-def get_means(data):
-	totals = [[] for x in range(0, 11)]
-	entries = [0] * 11
-	header = 0
-	for d in data:
-		if header == 0:
-			header += 1
-			continue
-		for i, x in enumerate(d):
-			if x != "NA":
-				totals[i].append(float(x))
-				entries[i] += 1
-	
-	sums = [sum(total) for total in totals]
-	means = [sums[i]/float(entries[i]) for i in range(0,11)]
-	return means
-
-
-def compute_missing_data(data):
-	means = get_means(data)
-	for d in data:
-		for j,x in enumerate(d):
-			if x == 'NA':
-				d[j] = means[j]
-	return data		
-
-def generate_filled_in():
-	d = read_training_data('data/cs-training.csv')	
-	d_new = compute_missing_data(d)
-	
-	with open("data/training_no_missing_attrs.csv", "wb") as f:
-	    writer = csv.writer(f)
-	    writer.writerows(d_new)
-```
-
-
-
-Our data came in the form a csv file with 11 attributes, a binary classifier, and
-150,000 training examples. We generated two datasets: (1) the original dataset with missing attributes
-calibrated to their associated means and (2) the original dataset with examples contianing 
-missing attributes dropped. This was done by our function _read_training_data_ which takes in two possible
-arguments: fname, drop=None. fname determines the path for the csv to read from and drop 
-determines if there is an attribute we want to drop. 
-
-
-```python
-def read_training_data(fname, drop=None):
-	col_start = 0
-	col_end = 11  # number of attributes
-	data = []
-	f = open(fname)
-	csv_reader = csv.reader(f)
-	for j, line in enumerate(csv_reader):
-		if j == 0:
-			# if it is the header file, parse as is (string)
-			if drop != None:
-				append_line = [line[header] for header in range(col_start, col_end)]
-				_a = append_line.pop(drop)
-			else:
-				append_line = [line[header] for header in range(col_start, col_end)]
-		if j != 0:
-			# otherwise, cast as float
-			if drop != None:
-				append_line = [float(line[cell]) for cell in range(col_start,col_end)]
-				_a = append_line.pop(drop)
-			else:
-				append_line = [float(line[cell]) for cell in range(col_start,col_end)]
-		data.append(append_line)
-	f.close()
-	return data
-```
 
 By doing this, we are able to iterate through which attribute we want to drop and use them to get
 the accuracy of the classifier. This is shown below:
