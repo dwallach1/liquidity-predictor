@@ -57,4 +57,31 @@ def read_training_data(fname, col_start, col_end, N=0, dropped=False):
 
 _Handling Undersampled Dataset_
 
+For this, we decided to make subsets of the original dataset with a more even spread of classifications. To create 
+these subsets, we used the same read_training data and looped through an array of N values, skipping that many examples
+with their classificiation being 1. The main function runs the loop while the generate_filled_in_small and the 
+generate_dropped_small read and write the data. 
+
+```python
+def generate_filled_in_small(N):
+	d = read_training_data('data/training_no_missing_attrs.csv',0, 11, N)
+	f_out = "data/training_no_missing_attrs_SMALL_" + str(N) + ".csv"
+	with open(f_out, "wb") as f:
+	    writer = csv.writer(f)
+	    writer.writerows(d)
+
+def generate_dropped_small(N):
+	d = read_training_data('data/training_missing_dropped.csv',0,11, N)
+	f_out = "data/training_dropped_SMALL_" + str(N) + ".csv"
+	with open(f_out, "wb") as f:
+	    writer = csv.writer(f)
+	    writer.writerows(d)
+
+def main():
+	Ns = [90000, 100000, 110000, 120000, 130000]
+	for n in Ns:
+		generate_filled_in_small(n)
+		generate_dropped_small(n)
+```
+
 
