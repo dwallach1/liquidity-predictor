@@ -55,28 +55,10 @@ Logistic Regression 	|	93.12%	|	93.39%	 |
 Naive Bayes 			|	93.00%	|	93.28%	 |
 
 
+# Ablation Results
 
-__K-Nearest Neighbors__
+To find the most important attribute, we took our three best learners (KNN from sci-kit, J48 from Weka, Logistic Regression in Weka) and dropped each attribute individually from both the Dropped dataset and the Filled-In dataset, and examined the results to see which attribute was most important. For decision trees and logistic regression (our best two learners), the most important attribute was attr_7, which is NumberOfTimes90DaysLate. The KNN results didn't show this same drop, but because accuracy drops the most with removing this attribute in our best two learners, we are confident in saying this is the most important attribute for borrowers to be aware of when trying to obtain a loan. All results are below.
 
-The graph below depicts the accuracy of the KNN algorithm for a K values in the range 0 to 30 using the sci-kit KNN algorithm. The red 
-dotted line uses a distance function to determine the proximity of the neighbors while the red line 
-uses a uniform function to calculate neighbors. As you can see, the uniform distance 
-did better overall, but as K increased both methods converged on a similar value 
-slightly above 93% accuracy. These values were calculated using the filled in dataset.
-![KNN Graph](/graphs/KNN_smalldata.png)
-
-
-Because at a K of 15 for the KNN algorithm converges on the maximum accuracy, we used this K to 
-determine the values when dropping attributes. The accuracy results using the filled in dataset 
-we found are depicted below: 
-
-
-Dataset | Weight |attr_1 | attr_2 | attr_3 | attr_4 | attr_5 | attr_6 | attr_7 | attr_8 | attr_9 | attr_10 |
---------|--------|-------|--------|--------|--------|--------|--------|--------|--------|--------|---------|
-Dropped | Uniform| 98%   |93%     | 93%    | 93% 	|93%     | 94%    |	93%	   |  93%	|  93%   | 93%	   |
-Dropped | Distance|98%   |93%     | 93%    | 93%    |93%     | 93%    |	93%	   |  93%	|  93%   | 93%	   |
-Filled-In| Uniform|93.35% |93.36% | 93.35% | 93.37% |93.50%  | 93.35% |	93.35% |  93.35%|  93.35%| 93.35%  |
-Filled-In| Distance|93.28%|93.25% | 93.30% | 93.28% |93.29%  | 93.26% |	93.29% |  93.30%|  93.30% | 93.30% |
 
 __Decsion Trees__
 
@@ -97,6 +79,29 @@ Dataset | attr_1 | attr_2 | attr_3 | attr_4 | attr_5 | attr_6 | attr_7 | attr_8 
 --------|--------|--------|--------|--------|--------|--------|--------|--------|--------|---------|
 Dropped  |93.12 %| 93.12% | 93.10% | 93.12% | 93.12% | 93.11% | 93.06% | 93.11% |  93.07%| 93.13%  |
 Filled-In| 93.39%| 93.40% | 93.37% | 93.39% | 93.38% | 93.39% | 93.32% | 93.38% | 93.33% | 93.39%  | 
+
+
+__K-Nearest Neighbors__
+
+The graph below depicts the accuracy of the KNN algorithm for a K values in the range 0 to 30 using the sci-kit KNN algorithm. The red 
+dotted line uses a distance function to determine the proximity of the neighbors while the red line 
+uses a uniform function to calculate neighbors. As you can see, the uniform distance 
+did better overall, but as K increased both methods converged on a similar value 
+slightly above 93% accuracy. These values were calculated using the filled in dataset.
+![KNN Graph](/graphs/KNN_smalldata.png)
+
+
+Because at a K of 15 for the KNN algorithm converges on the maximum accuracy, we used this K to 
+determine the values when dropping attributes. The accuracy results using the filled in dataset 
+we found are depicted below: 
+
+
+Dataset | Weight |attr_1 | attr_2 | attr_3 | attr_4 | attr_5 | attr_6 | attr_7 | attr_8 | attr_9 | attr_10 |
+--------|--------|-------|--------|--------|--------|--------|--------|--------|--------|--------|---------|
+Dropped | Uniform| 93.07% |93.10% | 93.07% | 93.07%	|93.27%  | 93.08% |	93.07% |  93.07%|  93.07%| 93.07%  |
+Dropped | Distance|93.00% |93.00% | 93.02% | 93.02% |93.02%  | 93.07% |	93.01% |  93.02%|  93.02%| 93.02%  |
+Filled-In| Uniform|93.35% |93.36% | 93.35% | 93.37% |93.50%  | 93.35% |	93.35% |  93.35%|  93.35%| 93.35%  |
+Filled-In| Distance|93.28%|93.25% | 93.30% | 93.28% |93.29%  | 93.26% |	93.29% |  93.30%|  93.30% | 93.30% |
 
 
 
