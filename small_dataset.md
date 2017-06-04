@@ -25,13 +25,14 @@ Filled-in | 120,000 | 66.5789% | 80.306% |  72.3824%  | 75.6959% | 67.5923% |   
 Filled-in | 130,000 | 50.1235% | 77.9089% |    66.8333%   | 72.6736% | 51.9126% | 73.6987%							 | Decision Tree | 27.7854% |
 __Means__ | __N/A__ | __70.92755%__ | __82.08595%__ |  __76.04915__  | __78.413175%__ | __67.697675%__ | 80.5424% | __N/A__ | __11.1584%__ |
 
+
  
  ** The Dropped dataset only went up to an N of 110,000 because a value for N any greater than that caused the dataset
  to be only comprised of the same classifications. This is because in the Dropped dataset, we are also dropping examples 
  that have missing attributes. 
 
 
-Parsing the results above, we can see that the decision tree classifier consistently outperformed the others. For this reason, we took
+Parsing the results above, we can see that the decision tree classifier consistently outperformed the others. For this reason, we took 
 a deeper look into decision trees. The table below details the decision tree's 10-fold cross validation when dropping each attribute. We 
 found that the Filled-In dataset with dropping 130,000 examples yielded the best difference thus the best learner. We call this dataset 
 the best-learner. We also further investigate the dataset that yielded the best accuracy which was the Filled-In dataset that skipped
@@ -59,20 +60,4 @@ the root of the tree when no attributes were dropped. The reason that the drop i
 "RevolvingUtilizationOfUnsecuredLines" had a lot of information gain as well. When we dropped both "NumberOfTimes90DaysLate" and 
 "RevolvingUtilizationOfUnsecuredLines", the accuracy fell to 73.4337%. 
 
-To drop the attributes, we iterated through a range correlating to the attributes as follows:
-```python
-for j in range(1,11): # 0 is the classifier 
-	_data = read_training_data(train_file, drop=j)		
-	headers = _data[0]
-		
-	data = _data[1:]
-	assert(len(headers) == len (data[1]))
-	X = [attrs[1:] for attrs in data] # data with the class attribute missing
-	Y = [int(_class[0]) for _class in data] # classifications for the data	
-	np_x = np.array(X)
-	np_y = np.array(Y)
-
-	assert(len(np_x[0]) == 9)
-	assert len(np_x) == len(np_y)
-	decision_tree(np_x, np_y)
-```
+![DecisionTreeAccuracyGraph](/graphs/DT_accuracy.png)
