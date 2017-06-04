@@ -1,9 +1,9 @@
 import csv 
 import random
 
-def read_training_data(fname, N, dropped=False):
-	col_start = 1
-	col_end = 12
+def read_training_data(fname, col_start, col_end, N=0, dropped=False):
+	# col_start = 1
+	# col_end = 12
 	data = []
 	# N = 120000
 	x = 0
@@ -70,14 +70,19 @@ def compute_missing_data(data):
 				# print ("setting value to mean of %s" % means[j])
 	return data		
 
-def generate_filled_in_small():
-	N = random.randint(100000, 130000)
-	d = read_training_data('data/training_no_missing_attrs.csv', N)
+def generate_filled_in_small(N):
+	d = read_training_data('data/training_no_missing_attrs.csv',0, 11, N)
 	f_out = "data/training_no_missing_attrs_SMALL_" + str(N) + ".csv"
 	with open(f_out, "wb") as f:
 	    writer = csv.writer(f)
 	    writer.writerows(d)
 
+def generate_dropped_small(N):
+	d = read_training_data('data/training_missing_dropped.csv',0,11, N)
+	f_out = "data/training_dropped_SMALL_" + str(N) + ".csv"
+	with open(f_out, "wb") as f:
+	    writer = csv.writer(f)
+	    writer.writerows(d)
 
 def generate_filled_in():
 	d = read_training_data('data/cs-training.csv')	
@@ -88,16 +93,17 @@ def generate_filled_in():
 	    writer.writerows(d_new)
 
 def generate_dropped():
-	d_new = read_training_data('data/cs-training.csv', 100000, dropped=True)	
+	d_new = read_training_data('data/cs-training.csv', dropped=True)	
 
-	with open("data/training_missing_dropped_SMALL.csv", "wb") as f:
+	with open("data/training_missing_dropped.csv", "wb") as f:
 	    writer = csv.writer(f)
 	    writer.writerows(d_new)
 
 def main():
-	# for j in range(0, 14):
-	# 	generate_filled_in_small()
-	generate_dropped()
+	Ns = [90000, 100000, 110000, 120000, 130000]
+	for n in Ns:
+		generate_filled_in_small(n)
+		generate_dropped_small(n)
 
 if __name__ == '__main__':
 	main()
