@@ -17,7 +17,7 @@ To approach this problem, we leveraged a dataset of 150,000 borrowers with attri
  
 Of all the learners, the Decision Tree classifier performed the best, correctly classifying 82.09 percent of the instances in the validation set. Of all the features, NumberOfTimes90DaysLate and RevolvingUtilizationOfUnsecuredLines  were two most important features. We concluded this by dropping out features from the dataset and training the learners on the new dataset without the feature. From here, we were looking for which feature, when missing from the dataset, created the largest decline in accuracy of the model as compared to the model trained with the full dataset. 
 
-![Classifier Accuracy | Dropping Features]('/graphs/Abstract_Chart.png')
+![Classifier Accuracy --- Dropping Features]('/graphs/Abstract_Chart.png')
 
 The classifiers we used were:
 - Decision Trees
