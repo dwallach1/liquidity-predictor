@@ -15,14 +15,14 @@ the best classifier's accuracy.
 
 Dataset | N | ZeroR | Decision Tree | 25-NN | Logistic Regression | Naive Bayes | Multi-layer Perceptron | Best Classifier| Difference |
 --------|---|-------|---------------|-------|---------------------|-------------|------------------------|----------------|------------|
-Dropped | 90,000 | 72.39% | 81.1253% | 75.3965% |78.6342% | 74.3987% |                                    |Decision Tree |8.7353% |
-Dropped | 100,000 | 58.7675% | 77.6199% | 67.7669%  | 73.6728% | 63.4547% |         						| Decision Tree | 18.8524% |
-Dropped | 110,000 | 81.3888% | 84.6026% | 81.642%  |82.1679% | 44.887% |            						| Decision Tree | 3.2138% |
-Filled-in | 90,000 | 83.2897% | 86.9631% | 84.5931% | 84.4764% | 83.5081% |        							 | Decision Tree | 3.6734% |
-Filled-in | 100,000 | 79.9476% | 85.2297% |  81.7896% |81.7576% | 80.2836% |      							  | Decision Tree | 5.2821% |
-Filled-in | 110,000 | 74.9344% | 82.9321% |  77.9894%  | 78.227% | 75.5444% |      							 | Decision Tree | 7.9977% |
-Filled-in | 120,000 | 66.5789% | 80.306% |  72.3824%  | 75.6959% | 67.5923% |      							 | Decision Tree | 13.7271% |
-Filled-in | 130,000 | 50.1235% | 77.9089% |    66.8333%   | 72.6736% | 51.9126% |  							 | Decision Tree | 27.7854% |
+Dropped | 90,000 | 72.39% | 81.1253% | 75.3965% |78.6342% | 74.3987% |                               |Decision Tree |8.7353% |
+Dropped | 100,000 | 58.7675% | 77.6199% | 67.7669%  | 73.6728% | 63.4547% |         			| Decision Tree | 18.8524% |
+Dropped | 110,000 | 81.3888% | 84.6026% | 81.642%  |82.1679% | 44.887% |            			| Decision Tree | 3.2138% |
+Filled-in | 90,000 | 83.2897% | 86.9631% | 84.5931% | 84.4764% | 83.5081% |        				 | Decision Tree | 3.6734% |
+Filled-in | 100,000 | 79.9476% | 85.2297% |  81.7896% |81.7576% | 80.2836% |      				  | Decision Tree | 5.2821% |
+Filled-in | 110,000 | 74.9344% | 82.9321% |  77.9894%  | 78.227% | 75.5444% |      				 | Decision Tree | 7.9977% |
+Filled-in | 120,000 | 66.5789% | 80.306% |  72.3824%  | 75.6959% | 67.5923% |      				 | Decision Tree | 13.7271% |
+Filled-in | 130,000 | 50.1235% | 77.9089% |    66.8333%   | 72.6736% | 51.9126% |  			  | Decision Tree | 27.7854% |
 __Means__ | __N/A__ | __70.92755%__ | __82.08595%__ |  __76.04915__  | __78.413175%__ | __67.697675%__ | | __N/A__ | __11.1584%__ |
 
  
@@ -31,7 +31,7 @@ __Means__ | __N/A__ | __70.92755%__ | __82.08595%__ |  __76.04915__  | __78.4131
  that have missing attributes. 
 
 
-Parsing the results above, we can see that the decision tree classifier consistently outperformed the others. For this reason, we took
+Parsing the results above, we can see that the decision tree classifier consistently outperformed the others. For this reason, we took 
 a deeper look into decision trees. The table below details the decision tree's 10-fold cross validation when dropping each attribute. We 
 found that the Filled-In dataset with dropping 130,000 examples yielded the best difference thus the best learner. We call this dataset 
 the best-learner. We also further investigate the dataset that yielded the best accuracy which was the Filled-In dataset that skipped
@@ -59,4 +59,4 @@ the root of the tree when no attributes were dropped. The reason that the drop i
 "RevolvingUtilizationOfUnsecuredLines" had a lot of information gain as well. When we dropped both "NumberOfTimes90DaysLate" and 
 "RevolvingUtilizationOfUnsecuredLines", the accurcay fell to 73.4337%. 
 
-![DecisionTreeAccuracyGraph](/graphs/DT_dropping.png)
+![DecisionTreeAccuracyGraph](/graphs/DT_accuracy.png)
