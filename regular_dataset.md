@@ -1,27 +1,4 @@
-# Liquidity Predictor
-
-
-
-# The Data
-
-__Attributes__
-
-Feature |Variable Name | Description | Type |
---------|--------------|-------------|------|
-__Classifier__ | __SeriousDlqin2yrs__ | __Person experienced 90 days past due delinquency or worse__ | __Y/N__ |
-Attr_1 | RevolvingUtilizationOfUnsecuredLines | Total balance on credit cards and personal lines of credit except real estate and no installment debt like car loans divided by the sum of credit limits | percentage
-Attr_2 |age | Age of borrower in years | integer
-Attr_3 | NumberOfTime30-59DaysPastDueNotWorse | Number of times borrower has been 30-59 days past due but no worse in the last 2 years. | integer
-Attr_4 | DebtRatio | Monthly debt payments, alimony,living costs divided by monthy gross income | percentage
-Attr_5 | MonthlyIncome | Monthly income | real
-Attr_6 | NumberOfOpenCreditLinesAndLoans | Number of Open loans (installment like car loan or mortgage) and Lines of credit (e.g. credit cards) | integer
-Attr_7 | NumberOfTimes90DaysLate | Number of times borrower has been 90 days or more past due. | integer
-Attr_8 | NumberRealEstateLoansOrLines | Number of mortgage and real estate loans including home equity lines of credit | integer
-Attr_9 | NumberOfTime60-89DaysPastDueNotWorse | Number of times borrower has been 60-89 days past due but no worse in the last 2 years. | integer
-Attr_10 | NumberOfDependents | Number of dependents in family excluding themselves (spouse, children etc.) | integer
-
-
-# Results
+# Results for Full Dataset
 
 __Overview__
 
