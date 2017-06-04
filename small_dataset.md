@@ -59,20 +59,4 @@ the root of the tree when no attributes were dropped. The reason that the drop i
 "RevolvingUtilizationOfUnsecuredLines" had a lot of information gain as well. When we dropped both "NumberOfTimes90DaysLate" and 
 "RevolvingUtilizationOfUnsecuredLines", the accurcay fell to 73.4337%. 
 
-To drop the attributes, we iterated through a range correlating to the attributes as follows:
-```python
-for j in range(1,11): # 0 is the classifier 
-	_data = read_training_data(train_file, drop=j)		
-	headers = _data[0]
-		
-	data = _data[1:]
-	assert(len(headers) == len (data[1]))
-	X = [attrs[1:] for attrs in data] # data with the class attribute missing
-	Y = [int(_class[0]) for _class in data] # classifications for the data	
-	np_x = np.array(X)
-	np_y = np.array(Y)
-
-	assert(len(np_x[0]) == 9)
-	assert len(np_x) == len(np_y)
-	decision_tree(np_x, np_y)
-```
+[DecisionTreeAccuracy](/graphs/DT_dropping.png)
