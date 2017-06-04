@@ -57,7 +57,7 @@ Naive Bayes 			|	93.00%	|	93.28%	 |
 
 # Ablation Results
 
-To find the most important attribute, we took our three best learners (KNN from sci-kit, J48 from Weka, Logistic Regression in Weka) and dropped each attribute individually from both the Dropped dataset and the Filled-In dataset, and examined the results to see which attribute was most important. For decision trees and logistic regression (our best two learners), the most important attribute was attr_7, which is NumberOfTimes90DaysLate. The KNN results didn't show this same drop, but because accuracy drops the most with removing this attribute in our best two learners, we are confident in saying this is the most important attribute for borrowers to be aware of when trying to obtain a loan. All results are below.
+To find the most important attribute, we took our three best learners (KNN from sci-kit, J48 from Weka, Logistic Regression in Weka) and dropped each attribute individually from both the Dropped dataset and the Filled-In dataset, and examined the drops in accuracy to see which attribute was most important. For decision trees and logistic regression (our best two learners), the most important attribute was attr_7, which is NumberOfTimes90DaysLate. The KNN results didn't show this same drop, but because accuracy drops the most with removing this attribute in our best two learners, we are confident in saying this is the most important attribute for borrowers to be aware of when trying to obtain a loan. All results are below.
 
 
 __Decsion Trees__
