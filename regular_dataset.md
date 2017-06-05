@@ -81,8 +81,6 @@ Filled-In| Uniform|93.35% |93.36% | 93.35% | 93.37% |93.50%  | 93.35% |	93.35% |
 Filled-In| Distance|93.28%|93.25% | 93.30% | 93.28% |93.29%  | 93.26% |	93.29% |  93.30%|  93.30% | 93.30% |
 
 
-
-
 By doing this, we are able to iterate through which attribute we want to drop and use them to get
 the accuracy of the classifier. This is shown below:
 

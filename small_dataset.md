@@ -1,15 +1,10 @@
 
 # Results Using Smaller Subsets of Data
 
-We began with a file containing 150,000 examples. While this may seem good in theory, the
-data was undersampled and therefore did not fully representative of the model we were aiming to 
-generate. Of the 150,000 examples 139,974 were classified as 0 and only 10,026 were classified as 1. 
-This led to our ZeroR classification to be around 93%. The implications of this caused
-more complex classifiers to yield only minimal increases (less than one percent). To combat 
-the undersampling, we used a subset of our training data that had more even distrobution of 
-classifications so that our ZeroR was a value closer to 50%. We did this by dropping an N number of examples
-that were classified as 1 as shown in the table below. The dataset refers to which dataset we were using to generate 
-the subset, the N is the number of examples dropped, and the difference is the percentage difference between ZeroR and 
+To combat our imbalanced dataset, we needed to make subsets of the original dataset so that the classifaction 
+distribution was more balanced. We did this by dropping N numbers of examples that were classified as 1 
+as shown in the table below. The dataset refers to which dataset we were using to generate the subset, 
+the N is the number of examples dropped, and the difference is the percentage difference between ZeroR and 
 the best classifier's accuracy.
 
 
@@ -44,11 +39,7 @@ Naive Bayes 			|	__67.697675%__	|
 
 
 Parsing the results above, we can see that the decision tree classifier consistently outperformed the others. For this reason, we took 
-a deeper look into decision trees. The table below details the decision tree's 10-fold cross validation when dropping each attribute. We 
-found that the Filled-In dataset with dropping 130,000 examples yielded the best difference thus the best learner. We call this dataset 
-the best-learner. We also further investigate the dataset that yielded the best accuracy which was the Filled-In dataset that skipped
-90,000 examples. We call this one the highest-accuracy dataset. Below, we drop each attribute and build a decision tree using the 
-best learner dataset. The attribute dropping should see the same results across the datasets, so there was no need to 
+a deeper look into decision trees. The table below details the decision tree's 10-fold cross validation when dropping each attribute. We found that the Filled-In dataset with dropping 130,000 examples yielded the best difference and thus is the best learner. We call this dataset the best-learner. We also further investigated the dataset that yielded the best accuracy which was the Filled-In dataset that skipped 90,000 examples. We call this one the highest-accuracy dataset. Below, we drop each attribute and build a decision tree using the best learner dataset. The attribute dropping should see the same results across the datasets, so there was no need to 
 run this for each dataset. 
 
 - __Attr_1:__ RevolvingUtilizationOfUnsecuredLines
@@ -66,12 +57,11 @@ Attr_1 | Attr_2 | Attr_3 | Attr_4 | Attr_5 | Attr_6 | __Attr_7__ | Attr_8 | Attr
 -------|--------|--------|--------|--------|--------|--------|--------|--------|---------|
 76.2388%|77.6989%|76.7188%|78.0539%|77.8239%|77.6889%|__76.1788%__|77.5239%|76.9988% | 77.9539%|  
 
-We found the "NumberOfTimes90DaysLate" attribute had the largest effect on our decision tree's accuracy. This makes sense because it was 
-the root of the tree when no attributes were dropped. The reason that the drop in accuracy is not large, is because other attributes like
-"RevolvingUtilizationOfUnsecuredLines" had a lot of information gain as well. When we dropped both "NumberOfTimes90DaysLate" and 
-"RevolvingUtilizationOfUnsecuredLines", the accuracy fell to 73.4337%. 
+We found the "NumberOfTimes90DaysLate" attribute had the largest effect on our decision tree's accuracy. This makes sense because it was the root of the tree when no attributes were dropped. The reason that the drop in accuracy is not large, is because other attributes like "RevolvingUtilizationOfUnsecuredLines" had a lot of information gain as well. 
+When we dropped both "NumberOfTimes90DaysLate" and "RevolvingUtilizationOfUnsecuredLines", the accuracy fell to 73.4337%. 
 
 ![DecisionTreeAccuracyGraph](/graphs/DT_accuracy.png)
 
 From this graph, we see that dropping certain attributes, numbers 4 and 10, actually yield higher accuracies than the baseline
-of dropping no attributes. This is could be because attribute 4 (DebtRatio) and attribute 10 (NumberOfDependents), 
+of dropping no attributes. This is could be because attribute 4 (DebtRatio) and attribute 10 (NumberOfDependents) might contain 
+noise in their data that resulted in a less accurate model. 
