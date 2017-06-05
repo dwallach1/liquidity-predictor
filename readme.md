@@ -9,15 +9,20 @@ davidwallach2018@u.northwestern.edu
 Northwestern University 
 EECS 349 - Machine Learning
 
+[CLICK HERE FOR FINAL REPORT](facebook.com)
+
 __Abstract__
 
 Bank’s play a critical role in market economies by operating as a source of credit and by deciding who can have access to credit and on what terms. Access to credit is a major ingredient for increased economic activity. However, a disturbance in this cycle of credit can have catastrophic consequences. Our task is to help borrowers and lenders make the best financial decisions by building a model that accurately predicts if a borrower will default on a loan within a two year time period. 
  
-To approach this problem, we leveraged a dataset of 150,000 borrowers with attributes such as age, monthly income, debt ratio, number of open credit lines, and number of times of late over various time periods. All the attributes are numeric. From here, we trained our data with 5 different classification learners and applied 10-fold cross validation to measure the results. While the accuracy of the model may be very useful for the lenders, the borrowers would benefit most by understanding which attributes have the biggest bearing on determining if they will default on their loan as they can only realistically improve on a couple attributes in the near future. 
+To approach this problem, we leveraged a dataset of 150,000 borrowers with attributes such as age, monthly income, debt ratio, number of open credit lines, and number of times late over various time periods. All the attributes are numeric. From here, we trained our dataset with 5 different classification learners and applied 10-fold cross validation to measure the results. While the accuracy of the model may be very useful for the lenders, the borrowers would benefit most by understanding which attributes have the biggest impact on determining if they will default on their loan as they can only realistically improve on a couple of attributes in the near future. 
  
-Of all the learners, the Decision Tree classifier performed the best, correctly classifying 82.09 percent of the instances in the validation set. Of all the features, NumberOfTimes90DaysLate and RevolvingUtilizationOfUnsecuredLines  were two most important features. We concluded this by dropping out features from the dataset and training the learners on the new dataset without the feature. From here, we were looking for which feature, when missing from the dataset, created the largest decline in accuracy of the model as compared to the model trained with the full dataset. 
+Of all the learners, the Decision Tree classifier performed the best, correctly classifying 82.09 percent of the instances in the validation set. Of all the features, NumberOfTimes90DaysLate and RevolvingUtilizationOfUnsecuredLines were the two most important features. We concluded this by dropping out features one by one from the dataset and training the learners on the new dataset without the feature. From here, we were looking for which feature, when missing from the dataset, created the largest decline in accuracy of the model as compared to the model when trained with the full dataset. 
 
 ![Classifier Accuracy --- Dropping Features]('/graphs/Abstract_Chart.png')
+
+Above is a chart with the various accuracies of the different learners. As you can, the Decesion Tree classifier performed the best while the Naive Bayes and Nearest Neighbor classifiers did not perform so well. The graph on the right shows the decline in accuracy when the model was trained on a dataset without the dropped feature. Feature #1 and #7 (NumberOfTimes90DaysLate and RevolvingUtilizationOfUnsecuredLines) had the largest declines in accuracy when they were dropped, indicating their importance. The steep decline in accuracy on the chart is when we dropped both Feature #1 and #7 at the same time, which further emphasizes their importance. 
+
 
 The classifiers we used were:
 - Decision Trees
@@ -34,12 +39,14 @@ The Programs we used to develop our results are:
 
 __Overview__ 
 
-We began with a file containing 150,000 examples. While this may seem good in theory, the data was undersampled
-and therefore not fully representative of the model we were aiming to generate. Of the 150,000 examples 139,974 
-were classified as 0 and only 10,0026 were classified as 1. This led to our ZeroR classification to be 
+We began with a file containing 150,000 examples. While this may seem good in theory, the data was imbalanced
+and therefore not fully representative of the model we were aiming to generate. Of the 150,000 examples, 139,974 
+were classified as 0 and only 10,026 were classified as 1. This led to our ZeroR classification to be 
 around 93%. The implications of this were that using more complex classifiers yielded only minimal increases 
-(less than one percent). To combat the undersampling, we used a subset of our training data that had more even 
-distrobution of classifications so that our ZeroR was a value closer to 50%. 
+(less than one percent). To combat the imbalanced dataset, we employed under sampling on our training data 
+so that we had a more even distribution of classifications in order for our ZeroR value to be closer to around 50%.
+We did this several times and ended up with 5 different-sized datasets each with a different ZeroR value. 
+
 
 _Attributes_
 
@@ -58,18 +65,17 @@ Attr_9 | NumberOfTime60-89DaysPastDueNotWorse | Number of times borrower has bee
 Attr_10 | NumberOfDependents | Number of dependents in family excluding themselves (spouse, children etc.) | integer
 
 
-
 __Generating the Different Datasets__
 
 Most of the code we used to generate the different datasets is in data_parser.py. From the [original dataset](/data/cs-training.csv),
-we created subsets of data for two reasons. First, to handle missing attributes and second, to overcome the undersampled 
+we created subsets of data for two reasons. First, to handle missing attributes and second, to overcome the imbalanced 
 nature of the original dataset. 
 
 _Handling Missing Attributes_
 
 Our original dataset came with missing attributes denoted as "NA". To account for this, we generated one dataset 
-with all examples containing missing attributes dropped which we call [Dropped Dataset](/data/training_missing_dropped.csv)
-and another with missing data replaced by the attributes mean value which we call [Filled-In Dataset](/data/training_no_missing_attrs.csv).
+with all examples containing missing attributes dropped which we called [Dropped Dataset](/data/training_missing_dropped.csv)
+and another with missing data replaced by the attributes mean value which we called [Filled-In Dataset](/data/training_no_missing_attrs.csv).
 
 In [data_parser.py](/data_parser.py), we use the read_training_data function as our main
 parser to read and change datasets. The fname parameter indicates the file we want to read from, the col_start and
@@ -101,7 +107,7 @@ def read_training_data(fname, col_start, col_end, N=0, dropped=False):
 - To generate the Filled-In dataset, we wrote `read_training_data('/data/cs-training.csv', 0, 11)`
 
 
-_Handling Undersampled Dataset_
+_Handling Imbalanced Dataset_
 
 For this, we decided to make subsets of the original dataset with a more even spread of classifications. To create 
 these subsets, we used the same read_training data and looped through an array of N values, skipping that many examples
@@ -133,9 +139,9 @@ def main():
 
 # Results
 
-We generated results for both the Filled-In dataset as well as the Dropped dataset. From there we also partitioned our
+We generated results for both the Filled-In dataset as well as the Dropped dataset. From there, we also partitioned our
 results based on using the full (original dataset) versus using subsets of data with more equal classification 
-distrobutions that we created. The results can be found be following the links below. 
+distributions that we created. The results can be found in the following links below:
 
 - [Full Dataset Results](/regular_dataset.md)
 - [Undersampled Dataset Results](/small_dataset.md)
