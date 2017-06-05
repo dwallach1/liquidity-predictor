@@ -1,7 +1,5 @@
 # Results for Full Dataset
 
-__Overview__
-
 For the purposes of conciseness, we will use the following definitions:
 - __Examples:__ refers to a training set (a row in the csv file)
 - __Original dataset:__ refering to the dataset with missing attributes denoted as "NA"
