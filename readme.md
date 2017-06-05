@@ -6,7 +6,7 @@ nicholaskotsiantos2019@u.northwestern.edu
 heathreineke2018@u.northwestern.edu        
 davidwallach2018@u.northwestern.edu
 
-Northwestern University 
+Northwestern University      
 EECS 349 - Machine Learning
 
 [CLICK HERE FOR FINAL REPORT](/Final_Project_349.pdf)
