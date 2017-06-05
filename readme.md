@@ -18,7 +18,7 @@ To approach this problem, we leveraged a dataset of 150,000 borrowers with attri
  
 Of all the learners, the Decision Tree classifier performed the best, correctly classifying 82.09 percent of the instances in the validation set. Of all the features, NumberOfTimes90DaysLate and RevolvingUtilizationOfUnsecuredLines were the two most important features. We concluded this by dropping out features one by one from the dataset and training the learners on the new dataset without the feature. From here, we were looking for which feature, when missing from the dataset, created the largest decline in accuracy of the model as compared to the model when trained with the full dataset. 
 
-![Classifier Accuracy --- Dropping Features]('/graphs/Abstract_Chart.png')
+![ClassifierAccuracyDroppingFeatures]('/graphs/Abstract_Chart.png')
 
 Above is a chart with the various accuracies of the different learners. As you can, the Decesion Tree classifier performed the best while the Naive Bayes and Nearest Neighbor classifiers did not perform so well. The graph on the right shows the decline in accuracy when the model was trained on a dataset without the dropped feature. Feature #1 and #7 (NumberOfTimes90DaysLate and RevolvingUtilizationOfUnsecuredLines) had the largest declines in accuracy when they were dropped, indicating their importance. The steep decline in accuracy on the chart is when we dropped both Feature #1 and #7 at the same time, which further emphasizes their importance. 
 
